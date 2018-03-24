@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Morabaraba_2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+         ResizeMode="NoResize" 
+        WindowStyle="ThreeDBorderWindow"
+        SizeToContent="WidthAndHeight"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="52*"/>
+            <ColumnDefinition Width="231*"/>
+            <ColumnDefinition Width="160*"/>
+            <ColumnDefinition Width="1149*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Game"  Name="Container"  HorizontalAlignment="Left" Height="600" Margin="10,0,-18,0" VerticalAlignment="Top" Width="800" Grid.ColumnSpan="4">
+
+            <GroupBox Header=""  Name="Background1"  HorizontalAlignment="Left" Height="528" Margin="78,30,0,0" VerticalAlignment="Top" Width="602" Grid.ColumnSpan="3" Grid.Column="1">
+                <GroupBox.Background>
+                    <ImageBrush ImageSource="Images\1200px-Morabaraba_board.svg.png" Stretch="Fill"/>
+                </GroupBox.Background>
+
+                <Grid HorizontalAlignment="Left" Height="1200" Margin="-1,10,-77,-32" VerticalAlignment="Top" Width="1266" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-0.29"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                </Grid>
+
+            </GroupBox>
+        </GroupBox>
     </Grid>
 </Window>
