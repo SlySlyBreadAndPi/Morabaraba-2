@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Morabaraba_2.Models.ColorType;
+using static Morabaraba_2.Models.Phases;
 
 namespace Morabaraba_2.Models
 {
@@ -14,9 +16,10 @@ namespace Morabaraba_2.Models
     /// </summary>
     public class Player
     {
-        phase pPhase { get; set;}
-        int Unplaced { get; set;}
-        int placed { get; set; }
-        Cow playerColour { get; set; }
+        public Phase playerPhase { get; set;}
+        public int Unplaced { get; set;}
+        public int placed { get; set; }
+        public Color playerColour { get; set; }
+        public List<Tuple<Cow, Cow, Cow>> Mills { get; set; }
     }
 }

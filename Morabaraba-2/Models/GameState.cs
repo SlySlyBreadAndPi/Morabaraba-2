@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Morabaraba_2.Models
 {
-   public class GameState
+   public static class GameStates
     {
         /// <summary>
         /// This is a simple object to judge whether or not the game-state is currently in play or over. We may decide to take this state out later
         /// </summary>
-        public enum State
-       {
-           Playing,
-           Gameover
-
-       }
+           public enum GameState
+           {
+             Playing,
+             Gameover
+           };
+       
     }
 }

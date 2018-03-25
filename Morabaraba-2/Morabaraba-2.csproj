@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MvvmEventBinding, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmEventBinding.1.0.0\lib\net45\MvvmEventBinding.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -62,12 +65,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Helpers\EllipseColorChanger.cs" />
+    <Compile Include="Helpers\EllipseColorConverter.cs" />
+    <Compile Include="Classes\GameBoardInitialisor.cs" />
+    <Compile Include="Classes\MillChecker.cs" />
+    <Compile Include="Classes\MillMaper.cs" />
+    <Compile Include="Classes\PlayerCreator.cs" />
+    <Compile Include="Classes\Morabaraba.cs" />
+    <Compile Include="Classes\MakeMove.cs" />
+    <Compile Include="Classes\WhosTurn.cs" />
+    <Compile Include="Helpers\EllipseNameToIndexConverter.cs" />
     <Compile Include="Models\Board.cs" />
-    <Compile Include="Models\Color.cs" />
+    <Compile Include="Models\ColorType.cs" />
     <Compile Include="Models\Cow.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameState.cs" />
-    <Compile Include="Models\phase.cs" />
+    <Compile Include="Models\Mill.cs" />
+    <Compile Include="Models\Phases.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -92,6 +106,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -100,9 +115,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\1200px-Morabaraba_board.svg.png" />
   </ItemGroup>

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Morabaraba_2.Models.GameStates;
 
 namespace Morabaraba_2.Models
 {
@@ -12,9 +13,9 @@ namespace Morabaraba_2.Models
     /// The index that the cow occupies will be used to move cows around the board, using a method that translates the index position within the list to a board position.
     /// It also holds gamestate to show whether the game is in progress or over.
     /// </summary>
-    class Board
+    public class Board
     {
-       List<Cow> Nodes { get; set; }
-       GameState State { get; set; }
+        public List<Cow> Nodes { get; set; }
+        public GameState State { get; set; }
     }
 }

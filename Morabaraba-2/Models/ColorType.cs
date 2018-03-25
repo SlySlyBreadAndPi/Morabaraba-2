@@ -11,9 +11,9 @@ namespace Morabaraba_2.Models
     /// It is the primary feature of the cow object
     /// There are 3 states because the cow (which represents a position on the board) is either owned by a player or is empty
     /// </summary>
-    class Color
+    public static class ColorType
     {
-        public enum State
+        public enum Color
         {
             Dark,
             Light,
