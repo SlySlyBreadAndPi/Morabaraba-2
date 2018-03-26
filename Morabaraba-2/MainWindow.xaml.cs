@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Morabaraba_2.Views;
 namespace Morabaraba_2
 {
     /// <summary>
@@ -47,6 +47,14 @@ namespace Morabaraba_2
             var newTurn = CurrentSession.Play(new Cow { IndexonBoard = indexofCowOnBoard, CowType = converter.GetGameColor(CowColor) },currentTurn);
             changer.ChangeColor(ref ellipseClicked, currentTurn == WhosTurn.Turn.Player1 ? ColorType.Color.Light : ColorType.Color.Dark);
             currentTurn = newTurn;
+        }
+
+        private void ToMainMenu(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var MainMenu = new MainMenu();
+            MainMenu.Show();
+
         }
     }
 }

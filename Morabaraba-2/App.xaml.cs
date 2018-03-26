@@ -13,5 +13,6 @@ namespace Morabaraba_2
     /// </summary>
     public partial class App : Application
     {
+        
     }
 }

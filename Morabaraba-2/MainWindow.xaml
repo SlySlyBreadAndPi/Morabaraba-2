@@ -8,7 +8,7 @@
          ResizeMode="NoResize" 
         WindowStyle="ThreeDBorderWindow"
         SizeToContent="WidthAndHeight"
-        Title="MainWindow" Height="600" Width="800">
+        Title="MainWindow" Height="648" Width="756.5">
     <Grid Margin="0,0,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="52*"/>
@@ -17,39 +17,49 @@
             <ColumnDefinition Width="1149*"/>
         </Grid.ColumnDefinitions>
         <GroupBox Header="Game"  Name="Container"  HorizontalAlignment="Left" Height="600" Margin="10,0,-18,0" VerticalAlignment="Top" Width="800" Grid.ColumnSpan="4">
+            <StackPanel Orientation="Horizontal" >
+                <StackPanel Orientation="Vertical" Name="ShotCowsPlayerOne" VerticalAlignment="Bottom" Margin="0,20,0,30">
 
-            <GroupBox Header=""  Name="Background1"  HorizontalAlignment="Left" Height="528" Margin="78,30,0,0" VerticalAlignment="Top" Width="602" Grid.ColumnSpan="3" Grid.Column="1">
-                <GroupBox.Background>
-                    <ImageBrush ImageSource="Images\1200px-Morabaraba_board.svg.png" Stretch="Fill"/>
-                </GroupBox.Background>
-                <Grid  HorizontalAlignment="Left" MouseDown="Move" Height="519" Margin="0,-13,-2,0" VerticalAlignment="Top" Width="592" Grid.ColumnSpan="3" >
-                    <Ellipse  Fill="White" HorizontalAlignment="Left" Height="57" Margin="0,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="zero"/>
-                    <Ellipse  Fill="White" HorizontalAlignment="Left" Height="57" Margin="10,244,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="one"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="two"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="58" Margin="94,92,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="three"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="188,163,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="four"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,93,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="five"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="520,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="six"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="342,163,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="seven"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,163,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="eight"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="446,92,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="nine"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="94,244,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="ten"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="56" Margin="94,384,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="eleven"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="188,244,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="twelve"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="188,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="thriteen"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="fourteen" RenderTransformOrigin="2.137,2.114"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="342,244,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="fifteen"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="342,306,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="sixteen"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="446,244,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="seventeen"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="434,384,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="eighteen"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="520,244,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="nineteen"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="10,452,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="twenty"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,384,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="twentyone"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,452,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="twentytwo"/>
-                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="520,452,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  Name="twentythree"/>
+                </StackPanel>
+                <GroupBox Header=""  x:Name="Background1"  HorizontalAlignment="Left" Height="528" Margin="75,20,0,0" VerticalAlignment="Top" Width="602">
+                    <GroupBox.Background>
+                        <ImageBrush ImageSource="Images\Morabaraba_board.svg.png" Stretch="Fill"/>
+                    </GroupBox.Background>
+                    <Grid  HorizontalAlignment="Left" MouseDown="Move" Height="519" Margin="0,-13,-2,0" VerticalAlignment="Top" Width="592" Grid.ColumnSpan="3" >
+                        <Ellipse  Fill="White" HorizontalAlignment="Left" Height="57" Margin="0,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="zero"/>
+                        <Ellipse  Fill="White" HorizontalAlignment="Left" Height="57" Margin="10,244,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="one"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="two"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="58" Margin="94,92,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="three"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="188,163,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="four"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,93,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="five"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="520,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="six"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="342,163,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="seven"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,163,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="eight"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="446,92,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="nine"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="94,244,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="ten"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="56" Margin="94,384,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="eleven"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="188,244,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="twelve"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="188,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="thriteen"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="fourteen" RenderTransformOrigin="2.137,2.114"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="342,244,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="fifteen"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="342,306,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="sixteen"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="446,244,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="seventeen"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="434,384,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="eighteen"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="520,244,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="nineteen"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="10,452,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="twenty"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,384,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="twentyone"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,452,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="twentytwo"/>
+                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="520,452,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="twentythree"/>
+                    </Grid>
+                </GroupBox>
+                <StackPanel Orientation="Vertical" Name="ShotCowsPlayerTwo" VerticalAlignment="Bottom" Margin="0,20,0,30">
 
-                </Grid>
-            </GroupBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical"  VerticalAlignment="Bottom" Margin="-600,0,0,-10">
+                <Button Name="Back" Width="100" Click="ToMainMenu"  Height="50" Content="Mainmenu" FontFamily="NewTimesRoman" FontWeight="Bold" FontStyle="Italic" FontSize="15"/>
+                </StackPanel>
+            </StackPanel>
+
         </GroupBox>
     </Grid>
 </Window>
