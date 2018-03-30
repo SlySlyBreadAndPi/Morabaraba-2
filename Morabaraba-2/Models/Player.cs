@@ -20,6 +20,6 @@ namespace Morabaraba_2.Models
         public int Unplaced { get; set;}
         public int placed { get; set; }
         public Color playerColour { get; set; }
-        public List<Tuple<Cow, Cow, Cow>> Mills { get; set; }
+        public List<Mill> Mills { get; set; }
     }
 }

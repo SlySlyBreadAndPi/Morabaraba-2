@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 namespace Morabaraba_2.Models
 {
     /// <summary>
-    /// The Mill Data structure is responsible for keeping track of 
-    /// Every index on the Board as well as every mill that
-    /// Could be formed from that index
-    /// 
+    /// Represnts a Mill 
+    /// Postion one represents the first postion of the mill
+    /// Postion two same as above but second postion
+    /// Position three same as above but three
     /// </summary>
     public class Mill
     {
-        //Keeps track of the current index
-        public int IndexOnBoard { get; set; }
-        //Keeps track of every possible mill that could be formed from the current index
-        public List<Tuple<Cow, Cow, Cow>> AdjacentMills {get;set;}
+        public Cow Position1 { get; set; }
+        public Cow Position2 { get; set; }
+
+        public Cow Position3 { get; set; }
     }
 }

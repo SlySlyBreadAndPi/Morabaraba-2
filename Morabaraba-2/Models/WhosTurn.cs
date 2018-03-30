@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Morabaraba_2.Classes
+namespace Morabaraba_2.Models
 {
     /// <summary>
     /// Indicated whos turn it currently is.

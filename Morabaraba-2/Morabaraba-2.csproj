@@ -57,8 +57,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\BoardUpdater.cs" />
+    <Compile Include="Helpers\CowGetter.cs" />
+    <Compile Include="Helpers\CowUpdater.cs" />
+    <Compile Include="Helpers\MillUpdater.cs" />
+    <Compile Include="Helpers\OnBoardCowGetter.cs" />
+    <Compile Include="Helpers\CowRemover.cs" />
+    <Compile Include="Classes\Play.cs" />
+    <Compile Include="Helpers\CowHighLighter.cs" />
+    <Compile Include="Helpers\EllipseIndexToNameConverter.cs" />
+    <Compile Include="Helpers\ListReinitializer.cs" />
+    <Compile Include="Helpers\Permutor.cs" />
+    <Compile Include="Helpers\PlayerMillUpdater.cs" />
+    <Compile Include="Helpers\PredicateProvider.cs" />
+    <Compile Include="Helpers\Synchronizer.cs" />
+    <Compile Include="Helpers\TupleCreator.cs" />
+    <Compile Include="Helpers\TupleExtractor.cs" />
+    <Compile Include="Helpers\ValidPositionVerifier.cs" />
+    <Compile Include="Models\Cows.cs" />
+    <Compile Include="Models\Mill.cs" />
+    <Compile Include="Models\SelectedColor.cs" />
+    <Compile Include="Views\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AIvsAI.xaml.cs">
+      <DependentUpon>AIvsAI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlayerColorSelector.xaml.cs">
+      <DependentUpon>PlayerColorSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlayerVsAI.xaml.cs">
+      <DependentUpon>PlayerVsAI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Rules.xaml.cs">
+      <DependentUpon>Rules.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -70,27 +105,47 @@
     </Compile>
     <Compile Include="Helpers\EllipseColorChanger.cs" />
     <Compile Include="Helpers\EllipseColorConverter.cs" />
-    <Compile Include="Classes\GameBoardInitialisor.cs" />
+    <Compile Include="Helpers\GameBoardInitialisor.cs" />
     <Compile Include="Classes\MillChecker.cs" />
     <Compile Include="Classes\MillMaper.cs" />
-    <Compile Include="Classes\PlayerCreator.cs" />
+    <Compile Include="Helpers\PlayerCreator.cs" />
     <Compile Include="Classes\Morabaraba.cs" />
     <Compile Include="Classes\MakeMove.cs" />
-    <Compile Include="Classes\WhosTurn.cs" />
+    <Compile Include="Models\WhosTurn.cs" />
     <Compile Include="Helpers\EllipseNameToIndexConverter.cs" />
     <Compile Include="Models\Board.cs" />
     <Compile Include="Models\ColorType.cs" />
     <Compile Include="Models\Cow.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameState.cs" />
-    <Compile Include="Models\Mill.cs" />
+    <Compile Include="Models\Mills.cs" />
     <Compile Include="Models\Phases.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AIvsAI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlayerColorSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlayerVsAI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Rules.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

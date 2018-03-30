@@ -5,16 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Morabaraba_2.Classes
+namespace Morabaraba_2.Helpers
 {
    public class PlayerCreator
    {
         Player one;
         Player two;
-        public PlayerCreator()
+        public PlayerCreator(SelectedColor color)
         {
-            one = new Player { playerColour = ColorType.Color.Dark, Mills = new List<Tuple<Cow, Cow, Cow>>(), placed = 0, Unplaced = 12, playerPhase = Phases.Phase.Stationary };
-            two = new Player { playerColour = ColorType.Color.Light, Mills = new List<Tuple<Cow, Cow, Cow>>(), placed = 0, Unplaced = 12, playerPhase = Phases.Phase.Stationary };
+            var unusedColor = color.PlayerOneColor == ColorType.Color.Dark ? ColorType.Color.Light : ColorType.Color.Dark;
+            one = new Player { playerColour = color.PlayerOneColor, Mills = new List<Mill>(), placed = 0, Unplaced = 12, playerPhase = Phases.Phase.Stationary };
+            two = new Player { playerColour = unusedColor, Mills = new List<Mill>(), placed = 0, Unplaced = 12, playerPhase = Phases.Phase.Stationary };
 
         }
         /// <summary>

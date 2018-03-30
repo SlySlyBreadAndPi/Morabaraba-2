@@ -24,76 +24,76 @@ namespace Morabaraba_2.Helpers
             int defualtIndex = -1;//if we cant find the index
             switch (Stringindex)
             {
-                case "zero":
+                case "a1":
                     defualtIndex = 0;
                     break;
-                case "one":
+                case "a4":
                     defualtIndex = 1;
                     break;
-                case "two":
+                case "a7":
                     defualtIndex = 2;
                     break;
-                case "three":
+                case "b2":
                     defualtIndex = 3;
                     break;
-                case "four":
+                case "b4":
                     defualtIndex = 4;
                     break;
-                case "five":
+                case "b6":
                     defualtIndex = 5;
                     break;
-                case "six":
+                case "c3":
                     defualtIndex = 6;
                     break;
-                case "seven":
+                case "c4":
                     defualtIndex = 7;
                     break;
-                case "eight":
+                case "c5":
                     defualtIndex = 8;
                     break;
-                case "nine":
+                case "d1":
                     defualtIndex = 9;
                     break;
-                case "ten":
+                case "d2":
                     defualtIndex = 10;
                     break;
-                case "eleven":
+                case "d3":
                     defualtIndex = 11;
                     break;
-                case "twelve":
+                case "d5":
                     defualtIndex = 12;
                     break;
-                case "thirteen":
+                case "d6":
                     defualtIndex = 13;
                     break;
-                case "fourteen":
+                case "d7":
                     defualtIndex = 14;
                     break;
-                case "fifteen":
+                case "e3":
                     defualtIndex = 15;
                     break;
-                case "sixteen":
+                case "e4":
                     defualtIndex = 16;
                     break;
-                case "seventeen":
+                case "e5":
                     defualtIndex = 17;
                     break;
-                case "eighteen":
+                case "f2":
                     defualtIndex = 18;
                     break;
-                case "nineteen":
+                case "f4":
                     defualtIndex = 19;
                     break;
-                case "tweenty":
+                case "f6":
                     defualtIndex = 20;
                     break;
-                case "tweentyone":
+                case "g1":
                     defualtIndex = 21;
                     break;
-                case "tweentytwo":
+                case "g4":
                     defualtIndex = 22;
                     break;
-                case "tweentythree":
+                case "g7":
                     defualtIndex = 23;
                     break;
             }

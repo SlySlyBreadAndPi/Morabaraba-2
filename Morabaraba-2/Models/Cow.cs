@@ -13,9 +13,11 @@ namespace Morabaraba_2.Models
         /// The cow object represents a position on the board by its position within the board's list of cows. 
         /// It holds a color object because that will show whether it is empty or what player controls it.
         /// IndexonBoard represents the index of the Cow on the Board
+        /// InAMill indicates whether the Current cow is in a mill or not
         /// </summary>
         public Color CowType { get; set; } 
         public int IndexonBoard { get; set; }
+        public bool InAmill { get; set; }
       
     }
 }

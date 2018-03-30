@@ -15,25 +15,13 @@ using System.Windows.Shapes;
 namespace Morabaraba_2.Views
 {
     /// <summary>
-    /// Interaction logic for MainMenu.xaml
+    /// Interaction logic for About.xaml
     /// </summary>
-    public partial class MainMenu : Window
+    public partial class About : Window
     {
-        public MainMenu()
+        public About()
         {
             InitializeComponent();
-        }
-
-        private void Play(object sender, RoutedEventArgs e)
-        {
-            var Game = new PlayerColorSelector();
-            this.Hide();
-            Game.Show();
-        }
-
-        private void CloseGame(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
         }
     }
 }
