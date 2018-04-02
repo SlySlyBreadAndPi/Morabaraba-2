@@ -59,7 +59,6 @@
     </ApplicationDefinition>
     <Compile Include="Classes\Play.cs" />
     <Compile Include="Helpers\EllipseColorChanger.cs" />
-    <Compile Include="Helpers\Synchronizer.cs" />
     <Compile Include="Helpers\ValidPositionVerifier.cs" />
     <Compile Include="Classes\Mill.cs" />
     <Compile Include="Models\AdjacentPositions.cs" />
@@ -163,6 +162,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Morabaraba_board.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Bitmap1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BoardM.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

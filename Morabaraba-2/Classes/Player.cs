@@ -17,14 +17,14 @@ namespace Morabaraba_2.Classes
     public class Player
     {
         private Phase playerPhase;
-        private int Unplaced;
+        private int unplaced;
         private int placed;
         private Cow playerCow;
 
-        public Player(Phase playerPhase, int unplaced, int placed, Cow playerColour)// player constructor
+        public Player(Phase playerPhase, int placed, int unplaced, Cow playerColour)// player constructor
         {
             this.playerPhase = playerPhase;
-            Unplaced = unplaced;
+            this.unplaced = unplaced;
             this.placed = placed;
             this.playerCow = playerColour;
         }
@@ -44,16 +44,20 @@ namespace Morabaraba_2.Classes
         public void PieceKilled()// reduces number of placed pieces by one
         {
             placed--;
-            if (placed == 2 && Unplaced == 0) throw new Exception();
-            if (placed < 4 && Unplaced == 0) SetPhase(Phase.Flying);
+            if (placed == 2 && unplaced == 0) throw new Exception();
+            if (placed < 4 && unplaced == 0) SetPhase(Phase.Flying);
 
         }
         public void PiecePlaced()// increases placed and decreases unplaced by one
         {
             placed++;
-            Unplaced--;
-            if (placed < 4 && Unplaced == 0) SetPhase(Phase.Flying);
-            else if (Unplaced == 0) SetPhase(Phase.Moving);
+            unplaced--;
+            if (placed < 4 && unplaced == 0) SetPhase(Phase.Flying);
+            else if (unplaced == 0) SetPhase(Phase.Moving);
+        }
+        public int GetUnplaced()
+        {
+            return unplaced;
         }
     }
 }

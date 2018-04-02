@@ -25,14 +25,15 @@ namespace Morabaraba_2
     public partial class MainWindow : Window
     {
         Morabaraba CurrentSession;
-        Synchronizer synchronizer;
+        
 
        
         public MainWindow(Colour color)
         {
             InitializeComponent();
             CurrentSession = new Morabaraba(PiecesParent,color);
-            
+            SetInformation(CurrentSession.InfoToString());
+
 
         }
         /// <summary>
@@ -49,17 +50,23 @@ namespace Morabaraba_2
     
            
                 try {
-                    synchronizer = new Synchronizer(PiecesParent);
+                    
                     var ellipseClicked = (e.Source as Ellipse);
                     index = Converter.ConvertNameToIndex(ellipseClicked.Name);
                     changer.ChangeColor(ref PiecesParent, CurrentSession.Move(index));
-                    
+                    SetInformation(CurrentSession.InfoToString());
                 }
                 catch { }
             
                 
             
             
+        }
+        public void SetInformation(List<string> information)
+        {
+            Turn.Text = information.ElementAt(0);
+            Phase.Text = information.ElementAt(1);
+            Action.Text = information.ElementAt(2);
         }
         /// <summary>
         /// Used for returning to the main menu incase a player gets bored

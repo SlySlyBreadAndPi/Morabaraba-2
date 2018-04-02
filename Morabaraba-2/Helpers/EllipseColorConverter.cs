@@ -16,8 +16,8 @@ namespace Morabaraba_2.Helpers
     /// </summary>
     public class EllipseColorConverter
     {
-        SolidColorBrush Black;
-        SolidColorBrush Yellow;
+        SolidColorBrush Red;
+        SolidColorBrush Blue;
         SolidColorBrush White;
 
         /// <summary>
@@ -26,8 +26,8 @@ namespace Morabaraba_2.Helpers
         /// </summary>
         public EllipseColorConverter()
         {
-            Black = new SolidColorBrush(Colors.Black);
-            Yellow = new SolidColorBrush(Colors.Yellow);
+            Red = new SolidColorBrush(Colors.Red);
+            Blue = new SolidColorBrush(Colors.Blue);
             White = new SolidColorBrush(Colors.White);
         }
        
@@ -39,8 +39,8 @@ namespace Morabaraba_2.Helpers
         /// <returns></returns>
         public Brush GetActualEllipseColor(ColorType.Colour color)
         {
-            var test = color == ColorType.Colour.Dark ? Black : color == ColorType.Colour.Light ? Yellow : White;
-            return color == ColorType.Colour.Dark ? Black : color==ColorType.Colour.Light?Yellow:White;
+            var test = color == ColorType.Colour.Dark ? Red : color == ColorType.Colour.Light ? Blue : White;
+            return color == ColorType.Colour.Dark ? Red : color==ColorType.Colour.Light?Blue:White;
         }
         /// <summary>
         /// Gets the game version of color based of the given color
@@ -49,7 +49,7 @@ namespace Morabaraba_2.Helpers
         /// <returns></returns>
         public ColorType.Colour GetColor(Brush brush)
         {
-            return brush == Black ? ColorType.Colour.Dark : ColorType.Colour.Light;
+            return brush == Red ? ColorType.Colour.Dark : ColorType.Colour.Light;
         }
 
     }

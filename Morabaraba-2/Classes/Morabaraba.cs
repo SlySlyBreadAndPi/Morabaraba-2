@@ -4,6 +4,8 @@ using static Morabaraba_2.Models.Phases;
 using Morabaraba_2.Helpers;
 using System.Windows.Controls;
 using System.Windows.Shapes;
+using System;
+using System.Collections.Generic;
 
 namespace Morabaraba_2.Classes
 {
@@ -36,15 +38,7 @@ namespace Morabaraba_2.Classes
             removing = false;
 
         }
-        /// <summary>
-        /// Initialises the Current Game Session Objects
-        /// </summary>
-        /// <param name="parent"></param>
-        public void Init()
-        {
-           
-           // currentGameState = new Game(init.InitializeBoard(),creator.GetPlayerOne(),creator.GetPlayerTwo());
-        }
+        
         /// <summary>
         /// Sets a node at a given index to a Cow and then checks for a valid mill
         /// </summary>
@@ -127,34 +121,7 @@ namespace Morabaraba_2.Classes
             return CurrentBoard;
 
         }
-        /// <summary>
-        /// Responsible for Making allowing the player to make a move 
-        /// This method is the intermediary between the UI and 
-        /// the rest of the game
-        /// </summary>
-        /// <param name="pos">The cow postion the Player whises to place a cow in</param>
-        /// <param name="turn">Next Players turn</param>
-        /// <returns></returns>
-
-        /// <summary>
-        /// Removes an opponents cow from the board
-        /// </summary>
-        /// <param name="ellipseClicked">Cow that was clicked on and to be removed</param>
-        /// <param name="piecesParent">The Actual board i.e. human readable board</param>
-        ///<param name="otherPlayer">used for checking if the other player has placed all they cows </param>
-
-
-        /// <summary>
-        /// Gets the Current state of the Board
-        /// </summary>
-        /// <returns> Board </returns>
-
-        /// <summary>
-        /// Returns a player 
-        /// </summary>
-        /// <param name="turn">Used for determining which player to return</param>
-        /// <returns></returns>
-        /// 
+        
         public Player Turn() => turn ? p1 : p2;
         public Player OtherPlayer() => turn ? p2 : p1;
         public void CowPlaced()
@@ -174,7 +141,48 @@ namespace Morabaraba_2.Classes
             else p2.SetPhase(phase);
         }
         public Cow TurnCow() => turn ? p1.GetCow() : p2.GetCow();
+        public List<string> InfoToString()
+        {
+            List<string> info = new List<string>();
+            info.Add(turn ? "Player One" : "Player Two");
+            info.Add(Turn().GetPhase().ToString());
+            info.Add(instructions());
 
+
+            return info;
+        }
+        public string instructions()
+        {
+            string inst="";
+            if (removing) inst= "Choose A valid Position Containing one of your opponents cows to kill";
+            else
+            {
+                switch(Turn().GetPhase())
+                {
+                    case (Phase.Moving):
+                        inst = "Choose a valid cow to move";
+                        break;
+                    case (Phase.Moving2):
+                        inst = "Choose where to move your cow";
+                        break;
+                    case (Phase.Placing):
+                        inst = "Choose one of your " + Turn().GetUnplaced() + " remaining pieces to place";
+                        break;
+                    case (Phase.Flying):
+                        inst = "Choose a valid cow to fly to a new position";
+                        break;
+                    case (Phase.Flying2):
+                        inst = "Choose where to Fly your chosen cow";
+                        break;
+
+                }
+
+            }
+
+
+            return inst;
+        }
+        
 
     }
 }

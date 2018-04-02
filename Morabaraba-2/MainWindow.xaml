@@ -8,67 +8,57 @@
          ResizeMode="NoResize" 
         WindowStyle="ThreeDBorderWindow"
         SizeToContent="WidthAndHeight"
-        Title="MainWindow" Height="705" Width="753.5">
-    <Grid Margin="0,0,0,0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="24*"/>
-            <ColumnDefinition Width="109*"/>
-            <ColumnDefinition Width="75*"/>
-            <ColumnDefinition Width="455*"/>
-            <ColumnDefinition Width="85*"/>
-        </Grid.ColumnDefinitions>
-        <GroupBox Header="Game"  Name="Container"  HorizontalAlignment="Left" Height="666" Margin="10,0,0,0" VerticalAlignment="Top" Width="728" Grid.ColumnSpan="5">
-            <StackPanel Orientation="Horizontal" Margin="10,0,67,-10" >
-                <StackPanel Orientation="Vertical" Name="ShotCowsPlayerOne" VerticalAlignment="Bottom" Margin="0,20,0,30">
+        Title="MainWindow" Height="705" Width="741.5">
 
-                </StackPanel>
-                <GroupBox Header=""  x:Name="Background1"  HorizontalAlignment="Left" Height="528" Margin="75,20,0,0" VerticalAlignment="Top" Width="602" RenderTransformOrigin="0.5,0.5">
-                    <GroupBox.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="89.944"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </GroupBox.RenderTransform>
-                    <GroupBox.Background>
-                        <ImageBrush ImageSource="Images\Morabaraba_board.svg.png" Stretch="Fill"/>
-                    </GroupBox.Background>
-                    <Grid  HorizontalAlignment="Left" MouseDown="Move" x:Name="PiecesParent" Height="519" Margin="0,-13,-2,0" VerticalAlignment="Top" Width="592" Grid.ColumnSpan="3" >
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="10,462,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="a1"/>
-                        <Ellipse  Fill="White" HorizontalAlignment="Left" Height="57" Margin="10,237,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="a4"/>
-                        <Ellipse  Fill="White" HorizontalAlignment="Left" Height="57" Margin="10,19,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="a7" RenderTransformOrigin="1.035,0.803"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="94,384,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="b2"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="94,237,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="b4"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="94,92,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="b6"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="177,309,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="c3"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="177,237,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="c4"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="177,163,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="c5"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,462,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="d1"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,384,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="d2"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,309,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="d3" RenderTransformOrigin="2.137,2.114"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,163,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="d5"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,92,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="d6"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="264,19,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="d7"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="342,309,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="e3"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="342,237,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="e4"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="342,163,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="e5"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="434,384,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="f2"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="434,237,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="f4" RenderTransformOrigin="0.5,0.512"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="434,92,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="f6"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="520,462,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="g1"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="520,237,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="g4"/>
-                        <Ellipse Fill="White" HorizontalAlignment="Left" Height="57" Margin="520,19,0,0" Stroke="Black" VerticalAlignment="Top" Width="62"  x:Name="g7"/>
-                    </Grid>
-                </GroupBox>
-                <StackPanel Orientation="Vertical"  VerticalAlignment="Bottom" Margin="-600,0,0,-10" Height="65" Width="601">
-                    <Button x:Name="Back" Width="100" Click="ToMainMenu"  Height="50" Content="Mainmenu" FontFamily="NewTimesRoman" FontWeight="Bold" FontStyle="Italic" FontSize="15"/>
-                </StackPanel>
-                <StackPanel Orientation="Vertical" Name="ShotCowsPlayerTwo" VerticalAlignment="Bottom" Margin="0,20,0,30">
+    <GroupBox Header="Game"  Name="Container"  HorizontalAlignment="Left" Height="650" VerticalAlignment="Top" Width="744" Grid.ColumnSpan="5" Margin="0,0,-8,0">
+        <Grid HorizontalAlignment="Left" Height="559" Margin="0,0,-2,0" VerticalAlignment="Top" Width="734">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="161*" />
+                <ColumnDefinition Width="573*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Margin="0,0,10,0">
+                <Label Content="Turn:" HorizontalAlignment="Left" Height="23" Width="141"/>
+                <TextBox HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="" Width="151" Focusable="False" Name="Turn" />
+                <Label Content="Phase:" HorizontalAlignment="Left" Height="23" Width="141"/>
+                <TextBox HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="" Width="151" Focusable="False" Name="Phase" />
+                <Label Content="Action Required:" HorizontalAlignment="Left" Height="23" Width="141"/>
+                <TextBox HorizontalAlignment="Left" Height="73" TextWrapping="Wrap" Text="" Width="151" Focusable="False" Name="Action" />
+                <Canvas HorizontalAlignment="Left" Height="86" Width="151"/>
+                <Button Content="Menu" HorizontalAlignment="Left" Height="35" Width="151"/>
 
-                </StackPanel>
             </StackPanel>
+            <GroupBox Grid.Column="1" x:Name="Background1"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="560" Width="560">
+                <GroupBox.Background>
+                    <ImageBrush ImageSource="Images\BoardM.png" Stretch="Fill"/>
+                </GroupBox.Background>
+                <Grid  HorizontalAlignment="Left" MouseDown="Move" Name="PiecesParent" Grid.ColumnSpan="3" >
+                    <Ellipse  Fill="White" HorizontalAlignment="Left" Height="64" Margin="26,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="a7"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="242,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="d7"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="458,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="g7"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="98,104,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="b6"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="242,104,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="d6"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="386,104,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="f6"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="170,176,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="c5"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="242,176,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="d5"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="314,176,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="e5"/>
+                    <Ellipse  Fill="White" HorizontalAlignment="Left" Height="64" Margin="26,248,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="a4"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="98,248,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="b4"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="170,248,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="c4"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="314,248,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="e4"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="386,248,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="f4"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="458,248,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="g4"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="170,320,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="c3"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="242,320,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="d3"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="314,320,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="e3"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="98,391,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="b2"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="242,391,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="d2"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="386,391,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="f2"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="26,464,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="a1"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Margin="242,464,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="d1"/>
+                    <Ellipse Fill="White" HorizontalAlignment="Left" Height="64" Stroke="Black" VerticalAlignment="Top" Width="64"  x:Name="g1" Margin="458,464,0,0"/>
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </GroupBox>
 
-        </GroupBox>
-    </Grid>
 </Window>
