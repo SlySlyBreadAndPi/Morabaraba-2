@@ -13,7 +13,7 @@ namespace Morabaraba_2.Models
     /// </summary>
     public static class ColorType
     {
-        public enum Color
+        public enum Colour
         {
             Dark,
             Light,

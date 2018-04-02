@@ -1,9 +1,11 @@
 ﻿using Morabaraba_2.Models;
+using static Morabaraba_2.Models.ColorType;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Morabaraba_2.Classes;
 
 namespace Morabaraba_2.Helpers
 {
@@ -11,18 +13,17 @@ namespace Morabaraba_2.Helpers
    {
         Player one;
         Player two;
-        public PlayerCreator(SelectedColor color)
+        public PlayerCreator(Colour color)
         {
-            var unusedColor = color.PlayerOneColor == ColorType.Color.Dark ? ColorType.Color.Light : ColorType.Color.Dark;
-            one = new Player { playerColour = color.PlayerOneColor, Mills = new List<Mill>(), placed = 0, Unplaced = 12, playerPhase = Phases.Phase.Stationary };
-            two = new Player { playerColour = unusedColor, Mills = new List<Mill>(), placed = 0, Unplaced = 12, playerPhase = Phases.Phase.Stationary };
-
+            var unusedColor = color == ColorType.Colour.Dark ? ColorType.Colour.Light : ColorType.Colour.Dark;
+            one = new Player(Phases.Phase.Stationary,0,12,new Cow(color));
+            two = new Player(Phases.Phase.Stationary,0,12,new Cow(unusedColor));
         }
         /// <summary>
         /// Creates the Player one object
         /// </summary>
         /// <returns></returns>
-        public Player CreatePlayerOne()
+        public Player GetPlayerOne()
         {
             return one;
         }
@@ -30,7 +31,7 @@ namespace Morabaraba_2.Helpers
         /// Creates the Player two object
         /// </summary>
         /// <returns></returns>
-        public Player CreatePlayerTwo()
+        public Player GetPlayerTwo()
         {
             return two;
         }

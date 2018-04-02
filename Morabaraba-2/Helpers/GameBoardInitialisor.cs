@@ -1,5 +1,6 @@
 ﻿using Morabaraba_2.Helpers;
 using Morabaraba_2.Models;
+using Morabaraba_2.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,14 +19,13 @@ namespace Morabaraba_2.Helpers
         Board gameBoard;
         public GameBoardInitialisor(Grid parent)
         {
-            var tempNodes = new List<Cow>();
-            var converter = new EllipseNameToIndexConverter();
+            var Nodes = new List<Cow>();
             for(int i =0; i < 24; i++)
             {
                 var ellipse = (parent.Children[i] as Ellipse);
-                tempNodes.Add(new Cow { CowType = ColorType.Color.Empty, IndexonBoard = converter.ConvertNameToIndex(ellipse.Name) });
+                Nodes.Add(new Cow(ColorType.Colour.Empty));
             }
-            gameBoard = new Board { Nodes = tempNodes, State = GameStates.GameState.Playing };
+            gameBoard = new Board(Nodes,GameStates.GameState.Playing);
         }
         /// <summary>
         /// Returns the Initilized board to be used in the current game session

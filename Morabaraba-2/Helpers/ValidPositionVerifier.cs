@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
-
+using Morabaraba_2.Classes;
 namespace Morabaraba_2.Helpers
 {
     /// <summary>
@@ -30,23 +30,17 @@ namespace Morabaraba_2.Helpers
         /// <param name="cow">The Proposed position to be played in</param>
         /// <param name="opponent">The Other Player</param>
         /// <returns></returns>
-        public bool Verify(Grid board ,Ellipse cow,Player opponent)
+        public bool Verify(Ellipse cow, Board board)
         {
             bool valid = false;
-            CowGetter getter = new CowGetter(board.Children);
             EllipseColorConverter converter = new EllipseColorConverter();
-            for(int i = 0; i < board.Children.Count; i++)
+            for(int i = 0; i < board.GetNodes().Count; i++)
             {
-                var tempEllipse = getter.GetEllipse(i);
-                if (tempEllipse.Name == cow.Name)
+                var EmptySpot = converter.GetActualEllipseColor(ColorType.Colour.Empty);
+                if (cow.Fill == EmptySpot)
                 {
-                    var color = converter.GetActualEllipseColor(opponent.playerColour);
-                    var EmptySpot = converter.GetActualEllipseColor(ColorType.Color.Empty);
-                    if (cow.Fill.ToString() == EmptySpot.ToString() &&cow.Fill != color)
-                    {
-                        valid = true;
-                        break;
-                    }
+                    valid = true;
+                    break;
                 }
             }
             return valid;
