@@ -16,29 +16,26 @@ namespace Morabaraba_2.Helpers
     /// </summary>
    public class Synchronizer
    {
-        Board cows;
         Grid HumanReadableBoard;
         /// <summary>
         /// Constrcutor
         /// </summary>
         /// <param name="cows"></param>
-        public Synchronizer(Board cows,Grid humanReadableBoard)
+        public Synchronizer(Grid humanReadableBoard)
         {
-            this.cows = cows;
             HumanReadableBoard = humanReadableBoard;
         }
-        public Grid Synchronize()
+        public Grid Synchronize(Board cows)
         {
             EllipseColorConverter converter = new EllipseColorConverter();
             //EllipseIndexToNameConverter ellipseIndexToNameConverter = new EllipseIndexToNameConverter();
             //EllipseNameToIndexConverter ellipseNameToIndexConverter = new EllipseNameToIndexConverter();
             for(int i =0; i < cows.GetNodes().Count; i++)
             {
-                
+                EllipseColorChanger changer = new EllipseColorChanger();
                 Ellipse current = HumanReadableBoard.Children[i] as Ellipse;
                 Cow currentCow = cows.GetNode(i);
-                current.Fill = converter.GetActualEllipseColor(currentCow.Get());
-                HumanReadableBoard.Children[i] = current;
+                HumanReadableBoard.Children[i] = changer.changeColor(current, currentCow.Get());
                 HumanReadableBoard.Children[i].IsEnabled = true;
             }
             return HumanReadableBoard;

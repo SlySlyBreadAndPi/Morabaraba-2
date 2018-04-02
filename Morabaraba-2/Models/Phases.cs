@@ -15,8 +15,10 @@ namespace Morabaraba_2.Models
         public enum Phase
         {
             Moving,
+            Moving2,
             Placing,
             Flying,
+            Flying2,
             Stationary
         }
 

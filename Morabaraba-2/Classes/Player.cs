@@ -44,11 +44,16 @@ namespace Morabaraba_2.Classes
         public void PieceKilled()// reduces number of placed pieces by one
         {
             placed--;
+            if (placed == 2 && Unplaced == 0) throw new Exception();
+            if (placed < 4 && Unplaced == 0) SetPhase(Phase.Flying);
+
         }
         public void PiecePlaced()// increases placed and decreases unplaced by one
         {
             placed++;
             Unplaced--;
+            if (placed < 4 && Unplaced == 0) SetPhase(Phase.Flying);
+            else if (Unplaced == 0) SetPhase(Phase.Moving);
         }
     }
 }

@@ -17,9 +17,11 @@ namespace Morabaraba_2.Helpers
     /// </summary>
     public class ValidPositionVerifier
     {
-        public ValidPositionVerifier()
-        {
+        Board board;
 
+        public ValidPositionVerifier(Board board)
+        {
+            this.board = board;
         }
         /// <summary>
         /// The main guy 
@@ -30,20 +32,24 @@ namespace Morabaraba_2.Helpers
         /// <param name="cow">The Proposed position to be played in</param>
         /// <param name="opponent">The Other Player</param>
         /// <returns></returns>
-        public bool Verify(Ellipse cow, Board board)
+        public bool VerifyEmpty(int cow)
         {
-            bool valid = false;
-            EllipseColorConverter converter = new EllipseColorConverter();
-            for(int i = 0; i < board.GetNodes().Count; i++)
+            return (board.GetNode(cow).Get() == ColorType.Colour.Empty);
+        }
+
+        //Checks if a position on the board belongs to the player being passed to it
+        public bool VerifyOwnByPlayer(int cow, Player player)
+        {
+            return (board.GetNode(cow).Get() == player.GetCow().Get());
+        }
+
+        public bool VerifyAdjacent(List<int> xs)
+        {
+            foreach(int i in xs)
             {
-                var EmptySpot = converter.GetActualEllipseColor(ColorType.Colour.Empty);
-                if (cow.Fill == EmptySpot)
-                {
-                    valid = true;
-                    break;
-                }
+                if (VerifyEmpty(i)) return true;
             }
-            return valid;
+            return false;
         }
     }
 }

@@ -25,12 +25,14 @@ namespace Morabaraba_2
     public partial class MainWindow : Window
     {
         Morabaraba CurrentSession;
+        Synchronizer synchronizer;
 
-        bool RemovingCow = false;//used for detecting if the player is currently removing a cow or not
+       
         public MainWindow(Colour color)
         {
             InitializeComponent();
             CurrentSession = new Morabaraba(PiecesParent,color);
+            
 
         }
         /// <summary>
@@ -39,22 +41,22 @@ namespace Morabaraba_2
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Move(object sender, MouseButtonEventArgs e)
-        {
+        {   
             var test = PiecesParent.Children;
+            EllipseColorChanger changer = new EllipseColorChanger();
             EllipseConverter Converter = new EllipseConverter();
             int index;
     
            
-            bool tried = false;
-            while (tried == false)
-            {
                 try {
+                    synchronizer = new Synchronizer(PiecesParent);
                     var ellipseClicked = (e.Source as Ellipse);
                     index = Converter.ConvertNameToIndex(ellipseClicked.Name);
+                    changer.ChangeColor(ref PiecesParent, CurrentSession.Move(index));
                     
                 }
                 catch { }
-            }
+            
                 
             
             

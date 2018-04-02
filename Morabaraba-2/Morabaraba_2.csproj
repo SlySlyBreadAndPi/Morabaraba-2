@@ -58,9 +58,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Play.cs" />
+    <Compile Include="Helpers\EllipseColorChanger.cs" />
     <Compile Include="Helpers\Synchronizer.cs" />
     <Compile Include="Helpers\ValidPositionVerifier.cs" />
     <Compile Include="Classes\Mill.cs" />
+    <Compile Include="Models\AdjacentPositions.cs" />
     <Compile Include="Views\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
@@ -92,12 +94,10 @@
     <Compile Include="Models\PossibleMills.cs" />
     <Compile Include="Helpers\PlayerCreator.cs" />
     <Compile Include="Classes\Morabaraba.cs" />
-    <Compile Include="Classes\MakeMove.cs" />
     <Compile Include="Helpers\EllipseConverter.cs" />
     <Compile Include="Classes\Board.cs" />
     <Compile Include="Models\ColorType.cs" />
     <Compile Include="Classes\Cow.cs" />
-    <Compile Include="Classes\Game.cs" />
     <Compile Include="Models\GameState.cs" />
     <Compile Include="Classes\Mills.cs" />
     <Compile Include="Models\Phases.cs" />

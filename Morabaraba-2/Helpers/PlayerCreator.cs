@@ -16,8 +16,8 @@ namespace Morabaraba_2.Helpers
         public PlayerCreator(Colour color)
         {
             var unusedColor = color == ColorType.Colour.Dark ? ColorType.Colour.Light : ColorType.Colour.Dark;
-            one = new Player(Phases.Phase.Stationary,0,12,new Cow(color));
-            two = new Player(Phases.Phase.Stationary,0,12,new Cow(unusedColor));
+            one = new Player(Phases.Phase.Placing,0,12,new Cow(color));
+            two = new Player(Phases.Phase.Placing,0,12,new Cow(unusedColor));
         }
         /// <summary>
         /// Creates the Player one object

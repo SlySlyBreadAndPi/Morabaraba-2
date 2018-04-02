@@ -21,13 +21,24 @@ namespace Morabaraba_2.Classes
         private GameState state;
         private PossibleMills mills;
         private Mills currentMills;
+        private AdjacentPositions adjacent;
 
         public Board(List<Cow> nodes, GameState state)// Constructor for the board object
         {
             this.nodes = nodes ?? throw new ArgumentNullException(nameof(nodes));
             this.state = state;
             currentMills = new Mills();
+            mills = new PossibleMills();
+            adjacent = new AdjacentPositions();
         }
+
+
+        public List<int> GetAdjacent (int index)
+        {
+            return adjacent.GetAdjacentByIndex(index);
+
+        }
+
 
         public List<Cow> GetNodes()// returns all the nodes
         {
@@ -43,7 +54,7 @@ namespace Morabaraba_2.Classes
         {
             nodes[index] = cow?? throw new ArgumentOutOfRangeException(nameof(index));
         }
-        public bool CheckNodeForMill(int index,Player player)//Takes a node index and a player to see if that player has a mill from that node
+        public bool CheckIndexForMill(int index,Player player)//Takes a node index and a player to see if that player has a mill from that node
         {
             Cow cow = player.GetCow();
             Mills mills = this.mills.GetMillsByIndex(index);
@@ -56,11 +67,28 @@ namespace Morabaraba_2.Classes
 
         private bool CheckMillAgainstBoard(Mill mill, Cow cow)//checks a specified possible mill against a type of cow to see if a mill has been created
         {
-            bool check = false;
+            bool check = true;
             List<int> list = mill.ToList();
-            foreach(int i in list) { check = check || GetNode(i) == cow; }
+            foreach(int i in list) { check = check && GetNode(i) == cow; }
             return check;
                          
+        }
+
+        public void SetEmpty (int index)
+        {
+            nodes[index] = new Cow(Colour.Empty) ?? throw new ArgumentOutOfRangeException(nameof(index));
+        }
+
+        public bool ContainsCowNotinMill(Player player)
+        {
+            for(int i=0;i<nodes.Count;i++)
+            {
+                if (player.GetCow() == GetNode(i) && !(CheckIndexForMill(i, player)))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
