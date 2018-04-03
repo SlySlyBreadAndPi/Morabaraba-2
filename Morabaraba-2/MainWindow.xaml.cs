@@ -25,13 +25,13 @@ namespace Morabaraba_2
     public partial class MainWindow : Window
     {
         Morabaraba CurrentSession;
-        
 
-       
+
+
         public MainWindow(Colour color)
         {
             InitializeComponent();
-            CurrentSession = new Morabaraba(PiecesParent,color);
+            CurrentSession = new Morabaraba(PiecesParent, color);
             SetInformation(CurrentSession.InfoToString());
 
 
@@ -42,25 +42,30 @@ namespace Morabaraba_2
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Move(object sender, MouseButtonEventArgs e)
-        {   
+        {
             var test = PiecesParent.Children;
             EllipseColorChanger changer = new EllipseColorChanger();
             EllipseConverter Converter = new EllipseConverter();
             int index;
-    
-           
-                try {
-                    
-                    var ellipseClicked = (e.Source as Ellipse);
-                    index = Converter.ConvertNameToIndex(ellipseClicked.Name);
-                    changer.ChangeColor(ref PiecesParent, CurrentSession.Move(index));
-                    SetInformation(CurrentSession.InfoToString());
-                }
-                catch { }
-            
-                
-            
-            
+
+
+            try
+            {
+
+                var ellipseClicked = (e.Source as Ellipse);
+                index = Converter.ConvertNameToIndex(ellipseClicked.Name);
+                changer.ChangeColor(ref PiecesParent, CurrentSession.Move(index));
+                SetInformation(CurrentSession.InfoToString());
+            }
+            catch
+            {
+                MessageBox.Show(Turn.Text + "Has Won the match");
+                BackToMainMenu();
+            }
+
+
+
+
         }
         public void SetInformation(List<string> information)
         {
@@ -74,12 +79,24 @@ namespace Morabaraba_2
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ToMainMenu(object sender, RoutedEventArgs e)
+        private void ToMainMenu(object sender, MouseButtonEventArgs e)
+        {
+            
+
+        }
+        private void BackToMainMenu()
         {
             this.Hide();
             var MainMenu = new MainMenu();
             MainMenu.Show();
 
+        }
+
+        private void GoToMainMenu_MouseDown(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var MainMenu = new MainMenu();
+            MainMenu.Show();
         }
     }
 }

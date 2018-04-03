@@ -161,12 +161,6 @@
     <Resource Include="Images\MainMenu.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Morabaraba_board.svg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Bitmap1.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\BoardM.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

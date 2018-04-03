@@ -47,7 +47,7 @@ namespace Morabaraba_2.Models
 
             Adjacent.Add(new Mill(0,6,3));
             Adjacent.Add(new Mill(4,5,3));
-            Adjacent.Add(new Mill(8,10,3));
+            Adjacent.Add(new Mill(18,10,3));
             AllPossibleMills.Add(new Mills (Adjacent));
             Adjacent = new List<Mill>();
 
@@ -90,7 +90,7 @@ namespace Morabaraba_2.Models
             Adjacent = new List<Mill>();
 
             Adjacent.Add(new Mill(9,10, 11));
-            Adjacent.Add(new Mill(3,15, 11));
+            Adjacent.Add(new Mill(6,15, 11));
             AllPossibleMills.Add(new Mills(Adjacent));
             Adjacent = new List<Mill>();
 
@@ -128,12 +128,12 @@ namespace Morabaraba_2.Models
             
             Adjacent.Add(new Mill(19, 20, 18));
             Adjacent.Add(new Mill(3, 10, 18));
-            Adjacent.Add(new Mill(19, 25, 18));
+            Adjacent.Add(new Mill(15, 21, 18));
             AllPossibleMills.Add(new Mills(Adjacent));
             Adjacent = new List<Mill>();
 
-            Adjacent.Add(new Mill(11, 9, 19));
-            Adjacent.Add(new Mill(3, 18, 19));
+            Adjacent.Add(new Mill(16, 22, 19));
+            Adjacent.Add(new Mill(20, 18, 19));
             AllPossibleMills.Add(new Mills(Adjacent));
             Adjacent = new List<Mill>();
 
@@ -149,8 +149,8 @@ namespace Morabaraba_2.Models
             AllPossibleMills.Add(new Mills(Adjacent));
             Adjacent = new List<Mill>();
 
-            Adjacent.Add(new Mill(22, 23, 22));
-            Adjacent.Add(new Mill(9, 2, 22));
+            Adjacent.Add(new Mill(24, 23, 22));
+            Adjacent.Add(new Mill(19, 16, 22));
             AllPossibleMills.Add(new Mills(Adjacent));
             Adjacent = new List<Mill>();
 

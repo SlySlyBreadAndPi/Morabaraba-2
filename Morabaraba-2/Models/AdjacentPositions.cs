@@ -32,11 +32,11 @@ namespace Morabaraba_2.Models
 
             Adjacent.Add(new List<int> { 1, 5, 14 });
 
-            Adjacent.Add(new List<int> { 0, 6, 4 });
+            Adjacent.Add(new List<int> { 0, 6, 4,10});
             
             Adjacent.Add(new List<int> { 1, 3, 5, 7 });
 
-            Adjacent.Add(new List<int> {2,4,8 });
+            Adjacent.Add(new List<int> {2,4,8,13});
 
             Adjacent.Add(new List<int> {3,7,11 });
 
@@ -66,7 +66,7 @@ namespace Morabaraba_2.Models
 
             Adjacent.Add(new List<int> {18,16,20,22 });
 
-            Adjacent.Add(new List<int> {19,13,23 });
+            Adjacent.Add(new List<int> {19,13,23,17});
 
             Adjacent.Add(new List<int> {9,18,22 });
 

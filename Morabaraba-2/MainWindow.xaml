@@ -24,7 +24,7 @@
                 <Label Content="Action Required:" HorizontalAlignment="Left" Height="23" Width="141"/>
                 <TextBox HorizontalAlignment="Left" Height="73" TextWrapping="Wrap" Text="" Width="151" Focusable="False" Name="Action" />
                 <Canvas HorizontalAlignment="Left" Height="86" Width="151"/>
-                <Button Content="Menu" HorizontalAlignment="Left" Height="35" Width="151"/>
+                <Button Content="Menu" Click="GoToMainMenu_MouseDown"  HorizontalAlignment="Left" Height="35" Width="151" Name="GoToMainMenu"/>
 
             </StackPanel>
             <GroupBox Grid.Column="1" x:Name="Background1"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="560" Width="560">

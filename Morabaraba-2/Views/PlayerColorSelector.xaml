@@ -13,8 +13,8 @@
         <Grid  HorizontalAlignment="Left" Name="PiecesParent" Height="519" Margin="0,-13,-2,0" VerticalAlignment="Top" Width="592" Grid.ColumnSpan="3" >
             <Label Content="Player Select your color" Margin="70,50,0,0" FontFamily="TimesNewRoman" FontWeight="Bold" FontStyle="Italic">
             </Label>
-            <Button Background="Black" Click="SelectedColor" Margin="50,106,491,389"/>
-            <Button  Background="Yellow" Click="SelectedColor" Margin="160,106,381,389"/>
+            <Button Background="Red" Click="SelectedColor" Margin="50,106,491,389"/>
+            <Button  Background="Blue" Click="SelectedColor" Margin="160,106,381,389"/>
             <Button Content="MainMenu"  Background="White" Margin="104,247,424,248" RenderTransformOrigin="0.5,0.5" Click="Button_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
