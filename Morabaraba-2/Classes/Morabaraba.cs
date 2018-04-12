@@ -27,16 +27,16 @@ namespace Morabaraba_2.Classes
         /// <summary>
         /// Constructor
         /// </summary>
-        public Morabaraba(Grid parent,Colour color)
+        public Morabaraba()
         {
-            init = new GameBoardInitialisor(parent);
+            init = new GameBoardInitialisor();
             CurrentBoard = init.InitializeBoard();
-            creator = new PlayerCreator(color);
+            creator = new PlayerCreator(ColorType.Colour.Dark);
             p1 = creator.GetPlayerOne();
             p2 = creator.GetPlayerTwo();
             turn = true;
             removing = false;
-
+            
         }
         
         /// <summary>
@@ -182,7 +182,25 @@ namespace Morabaraba_2.Classes
 
             return inst;
         }
-        
-
+        /// <summary>
+        /// Returns true if one of the players has met the losing condition
+        /// </summary>
+        /// <returns>boolean</returns>
+      public bool GetPlayerLostOrNot()
+      {
+            return turn ? p1.GetHasLost() : p2.GetHasLost();
+      }
+        /// <summary>
+        /// returns the cow list that makes up board
+        /// </summary>
+        /// <returns>List<Cow></returns>
+      public List<Cow> GetBoard()
+        {
+            return CurrentBoard.GetNodes();
+        }
+      public bool getTurn()
+        {
+            return turn;
+        }
     }
 }

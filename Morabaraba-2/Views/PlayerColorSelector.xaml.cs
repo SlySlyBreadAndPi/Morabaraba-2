@@ -38,8 +38,8 @@ namespace Morabaraba_2.Views
             var button = e.Source as Button;
             EllipseColorConverter converter = new EllipseColorConverter();
             this.Hide();
-            MainWindow morabaraba = new MainWindow(converter.GetColor(button.Background));
-            morabaraba.Show();
+          //  MainWindow morabaraba = new MainWindow(converter.GetColor(button.Background));
+           // morabaraba.Show();
         }
     }
 }

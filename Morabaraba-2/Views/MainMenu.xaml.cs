@@ -26,7 +26,7 @@ namespace Morabaraba_2.Views
 
         private void Play(object sender, RoutedEventArgs e)
         {
-            var Game = new PlayerColorSelector();
+            var Game = new MainWindow();
             this.Hide();
             Game.Show();
         }

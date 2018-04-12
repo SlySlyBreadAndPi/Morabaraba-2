@@ -17,12 +17,12 @@ namespace Morabaraba_2.Helpers
     public class GameBoardInitialisor
     {
         Board gameBoard;
-        public GameBoardInitialisor(Grid parent)
+        public GameBoardInitialisor()//Grid parent)
         {
             var Nodes = new List<Cow>();
             for(int i =0; i < 24; i++)
             {
-                var ellipse = (parent.Children[i] as Ellipse);
+                //var ellipse = (parent.Children[i] as Ellipse);
                 Nodes.Add(new Cow(ColorType.Colour.Empty));
             }
             gameBoard = new Board(Nodes,GameStates.GameState.Playing);

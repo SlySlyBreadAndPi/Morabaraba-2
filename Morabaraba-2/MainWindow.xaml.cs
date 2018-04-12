@@ -28,10 +28,10 @@ namespace Morabaraba_2
 
 
 
-        public MainWindow(Colour color)
+        public MainWindow()
         {
             InitializeComponent();
-            CurrentSession = new Morabaraba(PiecesParent, color);
+            CurrentSession = new Morabaraba();
             SetInformation(CurrentSession.InfoToString());
 
 
@@ -49,15 +49,14 @@ namespace Morabaraba_2
             int index;
 
 
-            try
-            {
+            
 
                 var ellipseClicked = (e.Source as Ellipse);
                 index = Converter.ConvertNameToIndex(ellipseClicked.Name);
                 changer.ChangeColor(ref PiecesParent, CurrentSession.Move(index));
                 SetInformation(CurrentSession.InfoToString());
-            }
-            catch
+
+            if (CurrentSession.GetPlayerLostOrNot())
             {
                 MessageBox.Show(Turn.Text + "Has Won the match");
                 BackToMainMenu();
@@ -67,12 +66,14 @@ namespace Morabaraba_2
 
 
         }
+
         public void SetInformation(List<string> information)
         {
             Turn.Text = information.ElementAt(0);
             Phase.Text = information.ElementAt(1);
             Action.Text = information.ElementAt(2);
         }
+
         /// <summary>
         /// Used for returning to the main menu incase a player gets bored
         /// or something like that 

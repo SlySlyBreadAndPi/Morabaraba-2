@@ -20,13 +20,14 @@ namespace Morabaraba_2.Classes
         private int unplaced;
         private int placed;
         private Cow playerCow;
-
+        private bool HasLost;
         public Player(Phase playerPhase, int placed, int unplaced, Cow playerColour)// player constructor
         {
             this.playerPhase = playerPhase;
             this.unplaced = unplaced;
             this.placed = placed;
             this.playerCow = playerColour;
+            HasLost = false;
         }
 
         public void SetPhase(Phase phase)// sets phase of player
@@ -44,8 +45,14 @@ namespace Morabaraba_2.Classes
         public void PieceKilled()// reduces number of placed pieces by one
         {
             placed--;
-            if (placed == 2 && unplaced == 0) throw new Exception();
-            if (placed < 4 && unplaced == 0) SetPhase(Phase.Flying);
+            if (placed == 2 && unplaced == 0)
+            {
+                HasLost = true;
+            }
+            if (placed < 4 && unplaced == 0)
+            {
+                SetPhase(Phase.Flying);
+            }
 
         }
         public void PiecePlaced()// increases placed and decreases unplaced by one
@@ -53,11 +60,21 @@ namespace Morabaraba_2.Classes
             placed++;
             unplaced--;
             if (placed < 4 && unplaced == 0) SetPhase(Phase.Flying);
+
             else if (unplaced == 0) SetPhase(Phase.Moving);
         }
         public int GetUnplaced()
         {
             return unplaced;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public  bool GetHasLost()
+        {
+            return HasLost;
         }
     }
 }
