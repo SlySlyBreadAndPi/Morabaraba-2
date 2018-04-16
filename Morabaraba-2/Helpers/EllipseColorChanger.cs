@@ -16,7 +16,7 @@ namespace Morabaraba_2.Helpers
     /// <summary>
     /// Responsible for Changing an Ellipse Background After Each Turn
     /// </summary>
-    public class EllipseColorChanger
+    public class EllipseColorChanger : IEllipseColorChanger
     {
         EllipseColorConverter converter;
 

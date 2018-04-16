@@ -15,7 +15,7 @@ namespace Morabaraba_2.Classes
     /// The index that the cow occupies will be used to move cows around the board, using a method that translates the index position within the list to a board position.
     /// It also holds gamestate to show whether the game is in progress or over.
     /// </summary>
-    public class Board
+    public class Board : IBoard
     {
         private List<Cow> nodes;
         private GameState state;

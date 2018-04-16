@@ -15,7 +15,7 @@ namespace Morabaraba_2.Helpers
     ///Position on the board is safe to be played or not
     ///This will prevent a user from playing at an already occupied position
     /// </summary>
-    public class ValidPositionVerifier
+    public class ValidPositionVerifier : IValidPositionVerifier
     {
         Board board;
 

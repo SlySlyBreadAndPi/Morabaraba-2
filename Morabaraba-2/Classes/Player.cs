@@ -14,7 +14,7 @@ namespace Morabaraba_2.Classes
     /// placed simply counts how many cows have been placed by the player so far
     /// playerColour is the colour that the player's cows will be in the game
     /// </summary>
-    public class Player
+    public class Player : IPlayer
     {
         private Phase playerPhase;
         private int unplaced;

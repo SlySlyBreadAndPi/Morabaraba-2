@@ -7,7 +7,7 @@ using static Morabaraba_2.Models.ColorType;
 
 namespace Morabaraba_2.Classes
 {
-   public  class Cow
+   public  class Cow : ICow
     {
         /// <summary>
         /// The cow object represents a position on the board by its position within the board's list of cows. 

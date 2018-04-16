@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Shapes;
 using System;
 using System.Collections.Generic;
+using Morabaraba_2.Interfaces;
 
 namespace Morabaraba_2.Classes
 {
@@ -13,7 +14,7 @@ namespace Morabaraba_2.Classes
     /// This class holds the current game session between two players
     /// </summary>
 
-    public class Morabaraba
+    public class Morabaraba: IMorabaraba
     {
         private Board CurrentBoard;
         private Player p1;
@@ -47,7 +48,7 @@ namespace Morabaraba_2.Classes
         public bool PlaceCow (int index)
         {
             CurrentBoard.SetNode(index, TurnCow());
-            return (CurrentBoard.CheckIndexForMill(index, Turn()));
+            return (CurrentBoard.CheckIndexForMill(index, Turn(turn)));
         }
         /// <summary>
         /// Move takes in a index of an ellipse and then uses the game state variables it has within it to call various methods to facilitate appropriate actions.
@@ -59,9 +60,9 @@ namespace Morabaraba_2.Classes
 
             if(removing)
             {
-                bool inMill = CurrentBoard.CheckIndexForMill(index, OtherPlayer());
-                bool allInMill = !CurrentBoard.ContainsCowNotinMill(OtherPlayer());
-                bool ownedByOpponent = verifier.VerifyOwnByPlayer(index, OtherPlayer());
+                bool inMill = CurrentBoard.CheckIndexForMill(index, Turn(!turn));
+                bool allInMill = !CurrentBoard.ContainsCowNotinMill(Turn(!turn));
+                bool ownedByOpponent = verifier.VerifyOwnByPlayer(index, Turn(!turn));
                 if (ownedByOpponent && (inMill == allInMill))
                 {
                     CurrentBoard.SetEmpty(index);
@@ -75,10 +76,10 @@ namespace Morabaraba_2.Classes
             }
             else
             {
-                switch (Turn().GetPhase())
+                switch (Turn(turn).GetPhase())
                 {
                     case (Phase.Moving):
-                        if(verifier.VerifyOwnByPlayer(index, Turn())&& verifier.VerifyAdjacent(CurrentBoard.GetAdjacent(index)))
+                        if(verifier.VerifyOwnByPlayer(index, Turn(turn))&& verifier.VerifyAdjacent(CurrentBoard.GetAdjacent(index)))
                         {
                             CurrentBoard.SetEmpty(index);
                             SetTurnPhase(Phase.Moving2);                            
@@ -101,7 +102,7 @@ namespace Morabaraba_2.Classes
                         }
                         break;
                     case (Phase.Flying):
-                        if (verifier.VerifyOwnByPlayer(index, Turn()))
+                        if (verifier.VerifyOwnByPlayer(index, Turn(turn)))
                         {
                             CurrentBoard.SetEmpty(index);
                             SetTurnPhase(Phase.Flying2);
@@ -121,9 +122,11 @@ namespace Morabaraba_2.Classes
             return CurrentBoard;
 
         }
-        
-        public Player Turn() => turn ? p1 : p2;
-        public Player OtherPlayer() => turn ? p2 : p1;
+
+        public Player Turn(bool turn)
+        {
+            return turn? p1 : p2;
+        }
         public void CowPlaced()
         {
             if (turn) p1.PiecePlaced();
@@ -134,18 +137,24 @@ namespace Morabaraba_2.Classes
             if (!turn) p1.PieceKilled();
             else p2.PieceKilled();
         }
-        public void NextTurn() { turn = !turn; }
+        public void NextTurn()
+        {
+            turn = !turn;
+        }
         public void SetTurnPhase(Phase phase)
         {
             if (turn) p1.SetPhase(phase);
             else p2.SetPhase(phase);
         }
-        public Cow TurnCow() => turn ? p1.GetCow() : p2.GetCow();
+        public Cow TurnCow()
+        {
+            return turn ? p1.GetCow() : p2.GetCow();
+        }
         public List<string> InfoToString()
         {
             List<string> info = new List<string>();
             info.Add(turn ? "Player One" : "Player Two");
-            info.Add(Turn().GetPhase().ToString());
+            info.Add(Turn(turn).GetPhase().ToString());
             info.Add(instructions());
 
 
@@ -157,7 +166,7 @@ namespace Morabaraba_2.Classes
             if (removing) inst= "Choose A valid Position Containing one of your opponents cows to kill";
             else
             {
-                switch(Turn().GetPhase())
+                switch(Turn(turn).GetPhase())
                 {
                     case (Phase.Moving):
                         inst = "Choose a valid cow to move";
@@ -166,7 +175,7 @@ namespace Morabaraba_2.Classes
                         inst = "Choose where to move your cow";
                         break;
                     case (Phase.Placing):
-                        inst = "Choose one of your " + Turn().GetUnplaced() + " remaining pieces to place";
+                        inst = "Choose one of your " + Turn(turn).GetUnplaced() + " remaining pieces to place";
                         break;
                     case (Phase.Flying):
                         inst = "Choose a valid cow to fly to a new position";

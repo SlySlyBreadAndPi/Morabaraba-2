@@ -4,6 +4,8 @@ using Morabaraba_2.Classes;
 using Morabaraba_2.Helpers;
 using NUnit;
 using NUnit.Framework;
+using NSubstitute;
+using Morabaraba_2.Interfaces;
 
 namespace Console_Morababra_2
 {
@@ -20,7 +22,7 @@ namespace Console_Morababra_2
         public static void P1Dark()
         {
             Morabaraba currentGameSession = new Morabaraba();
-            bool check = currentGameSession.Turn().GetCow().Get() == Morabaraba_2.Models.ColorType.Colour.Dark;
+            bool check = currentGameSession.Turn(true).GetCow().Get() == Morabaraba_2.Models.ColorType.Colour.Dark;
             Assert.That(check);
         }
 
@@ -54,6 +56,30 @@ namespace Console_Morababra_2
             bool turn = tester.getTurn();
             tester.Move(2);
             Assert.That(turn != tester.getTurn());
+        }
+        [Test]
+        public static void MaxofTwelveCows()
+        {
+            Morabaraba tester = new Morabaraba();
+            for(int i=0; i < 24; i++)
+            {
+                tester.Move(i);
+            }
+            var p1 = tester.Turn(true);
+            var p2 = tester.Turn(false);
+            Assert.That(p1.GetUnplaced() == 0 && p2.GetUnplaced() == 0);
+        }
+        [Test]
+        public static void NoMoveOnPlace()
+        {
+            
+            var command = Substitute.For<IMorabaraba>();
+            Morabaraba tester = new Morabaraba();
+            var repeater = tester.Move(0);
+            command.DidNotReceive().Move(0);
+          
+
+
         }
     }
 }

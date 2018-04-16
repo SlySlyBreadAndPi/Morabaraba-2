@@ -9,8 +9,8 @@ using Morabaraba_2.Classes;
 
 namespace Morabaraba_2.Helpers
 {
-   public class PlayerCreator
-   {
+   public class PlayerCreator : IPlayerCreator
+    {
         Player one;
         Player two;
         public PlayerCreator(Colour color)

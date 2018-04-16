@@ -10,7 +10,7 @@ namespace Morabaraba_2.Helpers
     /// Responsible for converting an Ellipse Name to an index
     /// For Instance One -> 1 
     /// </summary>
-   public class EllipseConverter
+   public class EllipseConverter : IEllipseConverter
     {
         /// <summary>
         /// Constructor

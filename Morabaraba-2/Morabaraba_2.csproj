@@ -34,11 +34,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
     <Reference Include="MvvmEventBinding, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmEventBinding.1.0.0\lib\net45\MvvmEventBinding.dll</HintPath>
     </Reference>
+    <Reference Include="NSubstitute, Version=3.1.0.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\NSubstitute.3.1.0\lib\net46\NSubstitute.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -57,10 +67,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes\Play.cs" />
+    <Compile Include="Interfaces\IValidPositionVerifier.cs" />
+    <Compile Include="Interfaces\IPlayerCreator.cs" />
+    <Compile Include="Interfaces\IGameBoardInitialisor.cs" />
+    <Compile Include="Interfaces\IEllipseConverter.cs" />
+    <Compile Include="Interfaces\IEllipseColorConverter.cs" />
+    <Compile Include="Interfaces\IEllipseColorChanger.cs" />
+    <Compile Include="Interfaces\IMill.cs" />
+    <Compile Include="Interfaces\IBoard.cs" />
+    <Compile Include="Interfaces\ICow.cs" />
+    <Compile Include="Interfaces\IMills.cs" />
+    <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Helpers\EllipseColorChanger.cs" />
     <Compile Include="Helpers\ValidPositionVerifier.cs" />
     <Compile Include="Classes\Mill.cs" />
+    <Compile Include="Interfaces\Morabaraba.cs" />
     <Compile Include="Models\AdjacentPositions.cs" />
     <Compile Include="Views\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>

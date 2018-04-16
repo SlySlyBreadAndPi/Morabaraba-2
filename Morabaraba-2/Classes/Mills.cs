@@ -12,7 +12,7 @@ namespace Morabaraba_2.Classes
     /// Could be formed from that index
     /// 
     /// </summary>
-    public class Mills
+    public class Mills : IMills
     {
         //Keeps track of every possible mill that could be formed from the current index
         private List<Mill> mills {get;set;}

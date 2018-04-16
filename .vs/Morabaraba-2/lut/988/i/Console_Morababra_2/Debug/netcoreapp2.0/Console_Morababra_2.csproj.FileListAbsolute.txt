@@ -1,0 +1,15 @@
+C:\Users\g15s3727\Downloads\Morabaraba-2-master\Morabaraba-2-master\.vs\Morabaraba-2\lut\0\b\Console_Morababra_2\Debug\netcoreapp2.0\NUnit3.TestAdapter.dll
+C:\Users\g15s3727\Downloads\Morabaraba-2-master\Morabaraba-2-master\.vs\Morabaraba-2\lut\0\b\Console_Morababra_2\Debug\netcoreapp2.0\NUnit3.TestAdapter.pdb
+C:\Users\g15s3727\Downloads\Morabaraba-2-master\Morabaraba-2-master\.vs\Morabaraba-2\lut\0\b\Console_Morababra_2\Debug\netcoreapp2.0\nunit.engine.netstandard.dll
+C:\Users\g15s3727\Downloads\Morabaraba-2-master\Morabaraba-2-master\.vs\Morabaraba-2\lut\0\b\Console_Morababra_2\Debug\netcoreapp2.0\Mono.Cecil.dll
+C:\Users\g15s3727\Downloads\Morabaraba-2-master\Morabaraba-2-master\.vs\Morabaraba-2\lut\0\b\Console_Morababra_2\Debug\netcoreapp2.0\Console_Morababra_2.deps.json
+C:\Users\g15s3727\Downloads\Morabaraba-2-master\Morabaraba-2-master\.vs\Morabaraba-2\lut\0\b\Console_Morababra_2\Debug\netcoreapp2.0\Console_Morababra_2.runtimeconfig.json
+C:\Users\g15s3727\Downloads\Morabaraba-2-master\Morabaraba-2-master\.vs\Morabaraba-2\lut\0\b\Console_Morababra_2\Debug\netcoreapp2.0\Console_Morababra_2.runtimeconfig.dev.json
+C:\Users\g15s3727\Downloads\Morabaraba-2-master\Morabaraba-2-master\.vs\Morabaraba-2\lut\0\b\Console_Morababra_2\Debug\netcoreapp2.0\Console_Morababra_2.dll
+C:\Users\g15s3727\Downloads\Morabaraba-2-master\Morabaraba-2-master\.vs\Morabaraba-2\lut\0\b\Console_Morababra_2\Debug\netcoreapp2.0\Console_Morababra_2.pdb
+C:\Users\g15s3727\Downloads\Morabaraba-2-master\Morabaraba-2-master\.vs\Morabaraba-2\lut\0\i\Console_Morababra_2\Debug\netcoreapp2.0\Console_Morababra_2.csproj.CoreCompileInputs.cache
+C:\Users\g15s3727\Downloads\Morabaraba-2-master\Morabaraba-2-master\.vs\Morabaraba-2\lut\0\i\Console_Morababra_2\Debug\netcoreapp2.0\Console_Morababra_2.AssemblyInfoInputs.cache
+C:\Users\g15s3727\Downloads\Morabaraba-2-master\Morabaraba-2-master\.vs\Morabaraba-2\lut\0\i\Console_Morababra_2\Debug\netcoreapp2.0\Console_Morababra_2.AssemblyInfo.cs
+C:\Users\g15s3727\Downloads\Morabaraba-2-master\Morabaraba-2-master\.vs\Morabaraba-2\lut\0\i\Console_Morababra_2\Debug\netcoreapp2.0\Console_Morababra_2.dll
+C:\Users\g15s3727\Downloads\Morabaraba-2-master\Morabaraba-2-master\.vs\Morabaraba-2\lut\0\i\Console_Morababra_2\Debug\netcoreapp2.0\Console_Morababra_2.pdb
+C:\Users\g15s3727\Downloads\Morabaraba-2-master\Morabaraba-2-master\.vs\Morabaraba-2\lut\0\i\Console_Morababra_2\Debug\netcoreapp2.0\Console_Morababra_2.csprojResolveAssemblyReference.cache

@@ -14,7 +14,7 @@ namespace Morabaraba_2.Helpers
     /// Black represents Dark
     /// Yellow represents Light
     /// </summary>
-    public class EllipseColorConverter
+    public class EllipseColorConverter : IEllipseColorConverter
     {
         SolidColorBrush Red;
         SolidColorBrush Blue;

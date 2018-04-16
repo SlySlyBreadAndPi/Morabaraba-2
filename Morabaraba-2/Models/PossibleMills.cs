@@ -149,7 +149,7 @@ namespace Morabaraba_2.Models
             AllPossibleMills.Add(new Mills(Adjacent));
             Adjacent = new List<Mill>();
 
-            Adjacent.Add(new Mill(24, 23, 22));
+            Adjacent.Add(new Mill(21, 23, 22));
             Adjacent.Add(new Mill(19, 16, 22));
             AllPossibleMills.Add(new Mills(Adjacent));
             Adjacent = new List<Mill>();

@@ -14,7 +14,7 @@ namespace Morabaraba_2.Helpers
     /// <summary>
     /// Responsible for initilizing the Gameboard to be used in the current session 
     /// </summary>
-    public class GameBoardInitialisor
+    public class GameBoardInitialisor : IGameBoardInitialisor
     {
         Board gameBoard;
         public GameBoardInitialisor()//Grid parent)

@@ -12,7 +12,7 @@ namespace Morabaraba_2.Classes
     /// Postion two same as above but second postion
     /// Position three same as above but three
     /// </summary>
-    public class Mill
+    public class Mill : IMill
     {
         private int Position1;
         private int Position2;
