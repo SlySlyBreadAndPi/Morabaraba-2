@@ -20,6 +20,7 @@ namespace MorabarabaNS.Classes
         PlayerCreator creator;
         GameBoardInitialisor init;
         ValidPositionVerifier verifier;
+        private ICommand command;
 
         /// <summary>
         /// Constructor
@@ -35,7 +36,20 @@ namespace MorabarabaNS.Classes
             removing = false;
             
         }
-        
+
+        public Morabaraba(ICommand command)
+        {
+            this.command = command;
+            init = new GameBoardInitialisor();
+            CurrentBoard = init.InitializeBoard();
+            creator = new PlayerCreator(ColorType.Colour.Dark);
+            p1 = creator.GetPlayerOne();
+            p2 = creator.GetPlayerTwo();
+            turn = true;
+            removing = false;
+
+        }
+
         /// <summary>
         /// Sets a node at a given index to a Cow and then checks for a valid mill
         /// </summary>
@@ -53,7 +67,10 @@ namespace MorabarabaNS.Classes
         public Board Move (int index)
         {
             verifier = new ValidPositionVerifier(CurrentBoard);
-
+            if(command!=null)
+            {
+                command.Execute();
+            }  
             if(removing)
             {
                 bool inMill = CurrentBoard.CheckIndexForMill(index, Turn(!turn));

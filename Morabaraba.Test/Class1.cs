@@ -71,14 +71,18 @@ namespace MorabarabaNS.Test
         public static void NoMoveOnPlace()
         {
 
-            var command = Substitute.For<IMorabaraba>();
-            Morabaraba tester = new Morabaraba();
+            var command = Substitute.For<ICommand>();
+            Morabaraba tester = new Morabaraba(command);
             var repeater = tester.Move(1);
-            command.Received(1).Move(1);
-            command.Received(1).NextTurn();
-
-
-
+            command.Received(1).Execute();
+        }
+        [Test]
+        public static void MoveIncreasedDecreasedCowsOnBoard()
+        {
+            Morabaraba morabaraba = new Morabaraba();
+            morabaraba.Move(0);
+            var nodes = morabaraba.GetBoard();
+            Assert.That(nodes.Count == 24);
         }
     }
 }
