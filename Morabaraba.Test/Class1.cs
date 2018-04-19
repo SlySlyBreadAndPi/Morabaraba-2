@@ -9,6 +9,8 @@ namespace MorabarabaNS.Test
 {
     public class Class1
     {
+
+        
         [Test]
         public static void BoardEmpty()
         {
@@ -84,5 +86,182 @@ namespace MorabarabaNS.Test
             var nodes = morabaraba.GetBoard();
             Assert.That(nodes.Count == 24);
         }
+        [Test]
+        public static void CheckMillSameColour()
+        {
+            Morabaraba morabaraba = new Morabaraba();
+            morabaraba.Move(0);
+            morabaraba.NextTurn();
+            morabaraba.Move(1);
+            morabaraba.NextTurn();
+            morabaraba.Move(2);
+            morabaraba.NextTurn();
+            Assert.That(morabaraba.isKilling());
+        }
+        [Test]
+        public static void CheckMillDiffColour()
+        {
+            Morabaraba morabaraba = new Morabaraba();
+            morabaraba.Move(0);
+            morabaraba.Move(1);
+            morabaraba.Move(2);
+            Assert.That(!morabaraba.isKilling());
+        }
+        [Test]
+        public static void CheckMillNotLine()
+        {
+            Morabaraba morabaraba = new Morabaraba();
+            morabaraba.Move(0);
+            morabaraba.NextTurn();
+            morabaraba.Move(1);
+            morabaraba.NextTurn();
+            morabaraba.Move(4);
+            Assert.That(!morabaraba.isKilling());
+        }
+        [Test]
+        public static void OnlyShootOnce()
+        {
+            Morabaraba morabaraba = new Morabaraba();
+            morabaraba.Move(23);
+            morabaraba.Move(0);
+            morabaraba.NextTurn();
+            morabaraba.Move(1);
+            morabaraba.NextTurn();
+            morabaraba.Move(2);
+            morabaraba.Move(23);
+            Assert.That(!morabaraba.isKilling());
+        }
+        [Test]
+        public static void CantshootOwn()
+        {
+            Morabaraba morabaraba = new Morabaraba();
+            morabaraba.Move(23);
+            morabaraba.NextTurn();
+            morabaraba.Move(0);
+            morabaraba.NextTurn();
+            morabaraba.Move(1);
+            morabaraba.NextTurn();
+            morabaraba.Move(2);
+            morabaraba.Move(23);
+            Assert.That(morabaraba.isKilling());
+        }
+        [Test]
+        public static void CantshootEmpty()
+        {
+            Morabaraba morabaraba = new Morabaraba();
+            
+            morabaraba.Move(0);
+            morabaraba.NextTurn();
+            morabaraba.Move(1);
+            morabaraba.NextTurn();
+            morabaraba.Move(2);
+            morabaraba.Move(23);
+            Assert.That(morabaraba.isKilling());
+        }
+        [Test]
+        public static void ShotCowRemoved()
+        {
+            Morabaraba morabaraba = new Morabaraba();
+            morabaraba.Move(23);
+            morabaraba.Move(0);
+            morabaraba.NextTurn();
+            morabaraba.Move(1);
+            morabaraba.NextTurn();
+            morabaraba.Move(2);
+            morabaraba.Move(23);
+            Assert.That(morabaraba.GetBoard()[23].Get() == MorabarabaNS.Models.ColorType.Colour.Empty);
+        }
+        [Test]
+        public static void CheckShootCowInMillA()
+        {
+            Morabaraba morabaraba = new Morabaraba();
+            morabaraba.Move(19);
+            morabaraba.Move(0);
+            morabaraba.NextTurn();
+            morabaraba.Move(1);
+            morabaraba.NextTurn();
+            morabaraba.Move(2);
+            morabaraba.Move(19);
+            morabaraba.NextTurn();
+            morabaraba.Move(19);
+            morabaraba.Move(21);
+            morabaraba.NextTurn();
+            morabaraba.Move(22);
+            morabaraba.NextTurn();
+            morabaraba.Move(23);
+            morabaraba.Move(0);
+            Assert.That(morabaraba.isKilling());
+        }
+        [Test]
+        public static void CheckShootCowInMillB()
+        {
+            Morabaraba morabaraba = new Morabaraba();
+            morabaraba.Move(19);//p1
+            morabaraba.Move(0);//p2
+            morabaraba.NextTurn();
+            morabaraba.Move(1);//p2
+            morabaraba.NextTurn();
+            morabaraba.Move(2);//p2
+            morabaraba.Move(19);//p2
+            morabaraba.Move(21);//p1
+            morabaraba.NextTurn();
+            morabaraba.Move(22);//p1
+            morabaraba.NextTurn();
+            morabaraba.Move(23);//p1
+            morabaraba.Move(0);
+            Assert.That(!morabaraba.isKilling());
+        }
+        [Test]
+        public static void CheckMovetoAdjacent()
+        {
+            Morabaraba morabaraba = new Morabaraba();
+            morabaraba.Move(0);
+            morabaraba.NextTurn();
+            morabaraba.SetTurnPhase(Models.Phases.Phase.Moving);
+            morabaraba.Move(0);
+            morabaraba.Move(23);
+            Assert.That(morabaraba.GetBoard()[23].Get() == MorabarabaNS.Models.ColorType.Colour.Empty);
+        }
+        [Test]
+        public static void CheckMovetoEmpty()
+        {
+            Morabaraba morabaraba = new Morabaraba();
+            morabaraba.Move(1);
+            morabaraba.Move(0);
+            morabaraba.NextTurn();
+            morabaraba.SetTurnPhase(Models.Phases.Phase.Moving);
+            morabaraba.Move(0);
+            var temp = morabaraba.GetBoard()[1].Get();
+            morabaraba.Move(1);
+            Assert.That(temp == morabaraba.GetBoard()[1].Get());
+        }
+        [Test]
+        public static void CheckBoardAfterMove()
+        {
+            Morabaraba morabaraba = new Morabaraba();
+            morabaraba.Move(0);
+            morabaraba.NextTurn();
+            morabaraba.SetTurnPhase(Models.Phases.Phase.Moving);
+            var temp = morabaraba.GetBoard()[0].Get();
+            morabaraba.Move(0);  
+            morabaraba.Move(1);
+            Assert.That(morabaraba.GetBoard()[1].Get() == temp);
+        }
+        [Test]
+        public static void CheckBoardAfterMoveB()
+        {
+            Morabaraba morabaraba = new Morabaraba();
+            morabaraba.Move(0);
+            morabaraba.NextTurn();
+            morabaraba.SetTurnPhase(Models.Phases.Phase.Moving);
+            var temp = morabaraba.CowsOnBoard();
+            morabaraba.Move(0);
+            morabaraba.Move(1);
+            Assert.That(morabaraba.CowsOnBoard() == temp);
+        }
+
+
+        
+
     }
 }

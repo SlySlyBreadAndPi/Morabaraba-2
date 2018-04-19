@@ -90,5 +90,15 @@ namespace MorabarabaNS.Classes
             }
             return false;
         }
+        public void setTemp(int index)
+        {
+            adjacent.setTemp(index);
+        }
+        public bool isAdjacent(int index)
+        {
+              return adjacent.checkAdjacent(index);
+        }
+
+
     }
 }

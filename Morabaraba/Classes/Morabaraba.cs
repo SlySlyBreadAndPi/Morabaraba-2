@@ -25,6 +25,7 @@ namespace MorabarabaNS.Classes
         /// <summary>
         /// Constructor
         /// </summary>
+        /// 
         public Morabaraba()
         {
             init = new GameBoardInitialisor();
@@ -35,6 +36,11 @@ namespace MorabarabaNS.Classes
             turn = true;
             removing = false;
             
+        }
+
+        public bool isKilling()
+        {
+            return removing;
         }
 
         public Morabaraba(ICommand command)
@@ -95,11 +101,12 @@ namespace MorabarabaNS.Classes
                         if(verifier.VerifyOwnByPlayer(index, Turn(turn))&& verifier.VerifyAdjacent(CurrentBoard.GetAdjacent(index)))
                         {
                             CurrentBoard.SetEmpty(index);
+                            CurrentBoard.setTemp(index);
                             SetTurnPhase(Phase.Moving2);                            
                         }
                         break;
                     case (Phase.Moving2):
-                        if (verifier.VerifyEmpty(index))
+                        if (verifier.VerifyEmpty(index)&&CurrentBoard.isAdjacent(index))
                         {
                             removing=PlaceCow(index);
                             SetTurnPhase(Phase.Moving);
@@ -223,6 +230,17 @@ namespace MorabarabaNS.Classes
       public bool getTurn()
         {
             return turn;
+        }
+
+        public int CowsOnBoard()
+        {
+            var cows = GetBoard();
+            int count = 0;
+            foreach (Cow x in cows)
+            {
+                if (x.Get() != MorabarabaNS.Models.ColorType.Colour.Empty) count++;
+            }
+            return count;
         }
     }
 }

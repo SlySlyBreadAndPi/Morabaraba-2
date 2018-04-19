@@ -15,6 +15,7 @@ namespace MorabarabaNS.Models
    {
         //Keeps track of every possible mill in the game
         List<List<int>> Adjacent;
+        private int temp;
         public AdjacentPositions()
         {
             GenerateMills();
@@ -81,6 +82,15 @@ namespace MorabarabaNS.Models
         public List<int> GetAdjacentByIndex(int index)
         {
             return Adjacent.ElementAt(index) ?? throw new ArgumentOutOfRangeException(nameof(index));
+        }
+        public void setTemp(int index)
+            {
+            temp = index;
+            }
+
+        public bool checkAdjacent(int index)
+        {
+            return GetAdjacentByIndex(temp).Contains(index);
         }
     }
 }
