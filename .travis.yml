@@ -1,2 +1,2 @@
 language: csharp
-solution: ".\Morabaraba\Morabaraba.sln"
+solution: "Morabaraba\Morabaraba.sln"
