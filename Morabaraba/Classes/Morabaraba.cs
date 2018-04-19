@@ -37,6 +37,26 @@ namespace MorabarabaNS.Classes
             removing = false;
             
         }
+        public Morabaraba(int unplaced)
+        {
+            init = new GameBoardInitialisor();
+            CurrentBoard = init.InitializeBoard();
+            creator = new PlayerCreator(ColorType.Colour.Dark, unplaced);
+            p1 = creator.GetPlayerOne();
+            p2 = creator.GetPlayerTwo();
+            turn = true;
+            removing = false;
+        }
+        public Morabaraba(int unplaced,int unplaced2)
+        {
+            init = new GameBoardInitialisor();
+            CurrentBoard = init.InitializeBoard();
+            creator = new PlayerCreator(ColorType.Colour.Dark, unplaced,unplaced2);
+            p1 = creator.GetPlayerOne();
+            p2 = creator.GetPlayerTwo();
+            turn = true;
+            removing = false;
+        }
 
         public bool isKilling()
         {
@@ -98,7 +118,11 @@ namespace MorabarabaNS.Classes
                 switch (Turn(turn).GetPhase())
                 {
                     case (Phase.Moving):
-                        if(verifier.VerifyOwnByPlayer(index, Turn(turn))&& verifier.VerifyAdjacent(CurrentBoard.GetAdjacent(index)))
+                        if (CheckIfNoAvaliableMoves(verifier))
+                        {
+                            PlayerLost();
+                        }
+                        else if(verifier.VerifyOwnByPlayer(index, Turn(turn))&& verifier.VerifyAdjacent(CurrentBoard.GetAdjacent(index)))
                         {
                             CurrentBoard.SetEmpty(index);
                             CurrentBoard.setTemp(index);
@@ -142,10 +166,33 @@ namespace MorabarabaNS.Classes
             return CurrentBoard;
 
         }
+        public bool CheckIfNoAvaliableMoves(ValidPositionVerifier ver)
+        {
+            var cows = GetBoard();
+            var cw = Turn(turn).GetCow().Get();
+            int i = 0;
+            foreach(Cow x in cows)
+            {
+                if (x.Get() == cw && ver.VerifyAdjacent(CurrentBoard.GetAdjacent(i))) return false;
+                i++;
+            }
+            return true;
+        }
 
         public Player Turn(bool turn)
         {
             return turn? p1 : p2;
+        }
+        public void PlayerLost()
+        {
+            if (turn)
+            {
+                p1.SetHasLost();
+            }
+            else
+            {
+                p2.SetHasLost();
+            }
         }
         public void CowPlaced()
         {
@@ -217,7 +264,7 @@ namespace MorabarabaNS.Classes
         /// <returns>boolean</returns>
       public bool GetPlayerLostOrNot()
       {
-            return turn ? p1.GetHasLost() : p2.GetHasLost();
+            return p1.GetHasLost()||p2.GetHasLost();
       }
         /// <summary>
         /// returns the cow list that makes up board

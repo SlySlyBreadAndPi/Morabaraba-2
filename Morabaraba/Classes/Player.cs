@@ -30,6 +30,14 @@ namespace MorabarabaNS.Classes
             HasLost = false;
         }
 
+        public Player(Phase playerPhase, int unplaced, Cow playerColour)
+        {
+            this.playerPhase = playerPhase;
+            this.unplaced = unplaced;
+            this.placed = 0;
+            this.playerCow = playerColour;
+            HasLost = false;
+        }
         public void SetPhase(Phase phase)// sets phase of player
         {
             playerPhase = phase;
@@ -59,6 +67,10 @@ namespace MorabarabaNS.Classes
         {
             placed++;
             unplaced--;
+            if (placed == 2 && unplaced == 0)
+            {
+                HasLost = true;
+            }
             if (placed < 4 && unplaced == 0) SetPhase(Phase.Flying);
 
             else if (unplaced == 0) SetPhase(Phase.Moving);
@@ -75,6 +87,10 @@ namespace MorabarabaNS.Classes
         public  bool GetHasLost()
         {
             return HasLost;
+        }
+        public void SetHasLost()
+        {
+            HasLost=true;
         }
     }
 }

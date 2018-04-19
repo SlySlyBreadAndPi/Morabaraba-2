@@ -10,7 +10,7 @@ namespace MorabarabaNS.Test
     public class Class1
     {
 
-        
+
         [Test]
         public static void BoardEmpty()
         {
@@ -149,7 +149,7 @@ namespace MorabarabaNS.Test
         public static void CantshootEmpty()
         {
             Morabaraba morabaraba = new Morabaraba();
-            
+
             morabaraba.Move(0);
             morabaraba.NextTurn();
             morabaraba.Move(1);
@@ -243,7 +243,7 @@ namespace MorabarabaNS.Test
             morabaraba.NextTurn();
             morabaraba.SetTurnPhase(Models.Phases.Phase.Moving);
             var temp = morabaraba.GetBoard()[0].Get();
-            morabaraba.Move(0);  
+            morabaraba.Move(0);
             morabaraba.Move(1);
             Assert.That(morabaraba.GetBoard()[1].Get() == temp);
         }
@@ -259,9 +259,49 @@ namespace MorabarabaNS.Test
             morabaraba.Move(1);
             Assert.That(morabaraba.CowsOnBoard() == temp);
         }
+        [Test]
+        public static void checkWinA()
+        {
+            Morabaraba morabaraba = new Morabaraba(3);
+            morabaraba.Move(0);//p1 placed 1 unplaced 2
+            morabaraba.Move(23);//p2 placed 1 unplaced 2
+            morabaraba.Move(1);//p1 placed 2 unplaced 1
+            morabaraba.Move(22);//p2 placed 2 unplaced 1
+            morabaraba.Move(2);//p1 placed 3 unplaced 0
+            morabaraba.Move(22);//p2 placed 1 unplaced 1
+            morabaraba.Move(16);//p2 placed 2 unplaced 0
+            Assert.That(morabaraba.GetPlayerLostOrNot());
+        }
+        [Test]
+        public static void checkWinB()
+        {
+            Morabaraba morabaraba = new Morabaraba(4,6);
+            morabaraba.Move(0);
+            morabaraba.NextTurn();
+            morabaraba.Move(1);
+            morabaraba.NextTurn();
+            morabaraba.Move(3);
+            morabaraba.NextTurn();
+            morabaraba.Move(4);
+            //p2 now
+            morabaraba.Move(2);
+            morabaraba.NextTurn();
+            morabaraba.Move(5);
+            morabaraba.NextTurn();
+            morabaraba.Move(6);
+            morabaraba.NextTurn();
+            morabaraba.Move(7);
+            morabaraba.NextTurn();
+            morabaraba.Move(9);
+            morabaraba.NextTurn();
+            morabaraba.Move(10);
+            //p2 final move
+            morabaraba.Move(1);
+
+            Assert.That(morabaraba.GetPlayerLostOrNot());
+        }
 
 
-        
 
     }
 }
