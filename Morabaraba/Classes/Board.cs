@@ -17,13 +17,13 @@ namespace MorabarabaNS.Classes
     /// </summary>
     public class Board : IBoard
     {
-        private List<Cow> nodes;
+        private List<ICow> nodes;
         private GameState state;
         private PossibleMills mills;
         private Mills currentMills;
         private AdjacentPositions adjacent;
 
-        public Board(List<Cow> nodes, GameState state)// Constructor for the board object
+        public Board(List<ICow> nodes, GameState state)// Constructor for the board object
         {
             this.nodes = nodes ?? throw new ArgumentNullException(nameof(nodes));
             this.state = state;
@@ -40,24 +40,30 @@ namespace MorabarabaNS.Classes
         }
 
 
-        public List<Cow> GetNodes()// returns all the nodes
+        public List<ICow> GetNodes()// returns all the nodes
         {
             return nodes;
         }
 
-        public Cow GetNode(int index)// returns the cow value at a specified node
+        public void Moving(int index)
+        {
+            setTemp(index);
+            SetEmpty(index);
+        }
+
+        public ICow GetNode(int index)// returns the cow value at a specified node
         {
             return nodes.ElementAt(index);
         }
 
-        public void SetNode(int index, Cow cow)// sets the value of a node to the given cow value
+        public void SetNode(int index, ICow cow)// sets the value of a node to the given cow value
         {
             nodes[index] = cow?? throw new ArgumentOutOfRangeException(nameof(index));
         }
-        public bool CheckIndexForMill(int index,Player player)//Takes a node index and a player to see if that player has a mill from that node
+        public bool CheckIndexForMill(int index,IPlayer player)//Takes a node index and a player to see if that player has a mill from that node
         {
-            Cow cow = player.GetCow();
-            Mills mills = this.mills.GetMillsByIndex(index);
+            ICow cow = player.GetCow();
+            IMills mills = this.mills.GetMillsByIndex(index);
             foreach(Mill mill in mills.GetMills())
             {
                 if (CheckMillAgainstBoard(mill, cow)) { currentMills.Add(mill); return true; }
@@ -65,7 +71,7 @@ namespace MorabarabaNS.Classes
             return false;
         }
 
-        private bool CheckMillAgainstBoard(Mill mill, Cow cow)//checks a specified possible mill against a type of cow to see if a mill has been created
+        private bool CheckMillAgainstBoard(IMill mill, ICow cow)//checks a specified possible mill against a type of cow to see if a mill has been created
         {
             bool check = true;
             List<int> list = mill.ToList();
@@ -79,7 +85,7 @@ namespace MorabarabaNS.Classes
             nodes[index] = new Cow(Colour.Empty) ?? throw new ArgumentOutOfRangeException(nameof(index));
         }
 
-        public bool ContainsCowNotinMill(Player player)
+        public bool ContainsCowNotinMill(IPlayer player)
         {
             for(int i=0;i<nodes.Count;i++)
             {
@@ -97,6 +103,23 @@ namespace MorabarabaNS.Classes
         public bool isAdjacent(int index)
         {
               return adjacent.checkAdjacent(index);
+        }
+
+        public int CowsOnBoard()
+        {
+            var cows = GetNodes();
+            int count = 0;
+            foreach (ICow x in cows)
+            {
+                if (x.Get() != MorabarabaNS.Models.ColorType.Colour.Empty) count++;
+            }
+            return count;
+        }
+
+        public bool PlaceCow(int index,IPlayer player)
+        {
+            SetNode(index, player.GetCow());
+            return (CheckIndexForMill(index, player));
         }
 
 

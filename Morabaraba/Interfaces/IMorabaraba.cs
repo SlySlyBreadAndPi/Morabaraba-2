@@ -10,18 +10,17 @@ namespace MorabarabaNS.Interfaces
 {
     public interface IMorabaraba
     {
-        bool PlaceCow(int index);
-        Board Move(int index);
-        Player Turn(bool turn);
+        IBoard Move(int index);
+        IPlayer Turn(bool turn);
         void CowPlaced();
         void CowKilled();
         void NextTurn();
         void SetTurnPhase(Phase phase);
-        Cow TurnCow();
+        ICow TurnCow();
         List<string> InfoToString();
         string instructions();
         bool GetPlayerLostOrNot();
-        List<Cow> GetBoard();
+        List<ICow> GetBoard();
         bool getTurn();
     }
 }

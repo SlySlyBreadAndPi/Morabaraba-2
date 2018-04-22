@@ -19,7 +19,7 @@ namespace MorabarabaNS.Classes
         private Phase playerPhase;
         private int unplaced;
         private int placed;
-        private Cow playerCow;
+        private ICow playerCow;
         private bool HasLost;
         public Player(Phase playerPhase, int placed, int unplaced, Cow playerColour)// player constructor
         {
@@ -30,7 +30,7 @@ namespace MorabarabaNS.Classes
             HasLost = false;
         }
 
-        public Player(Phase playerPhase, int unplaced, Cow playerColour)
+        public Player(Phase playerPhase, int unplaced, ICow playerColour)
         {
             this.playerPhase = playerPhase;
             this.unplaced = unplaced;
@@ -46,7 +46,7 @@ namespace MorabarabaNS.Classes
         {
             return playerPhase;
         }
-        public Cow GetCow()// returns the players cow
+        public ICow GetCow()// returns the players cow
         {
             return playerCow;
         }

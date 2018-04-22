@@ -4,6 +4,6 @@ namespace MorabarabaNS.Helpers
 {
     public interface IGameBoardInitialisor
     {
-        Board InitializeBoard();
+        IBoard InitializeBoard();
     }
 }

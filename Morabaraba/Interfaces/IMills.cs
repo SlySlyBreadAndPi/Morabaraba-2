@@ -4,8 +4,8 @@ namespace MorabarabaNS.Classes
 {
     public interface IMills
     {
-        void Add(Mill mill);
+        void Add(IMill mill);
         bool ContainsIndex(int index);
-        List<Mill> GetMills();
+        List<IMill> GetMills();
     }
 }

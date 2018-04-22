@@ -9,10 +9,10 @@ namespace MorabarabaNS.Helpers
     /// </summary>
     public class GameBoardInitialisor : IGameBoardInitialisor
     {
-        Board gameBoard;
+        IBoard gameBoard;
         public GameBoardInitialisor()//Grid parent)
         {
-            var Nodes = new List<Cow>();
+            var Nodes = new List<ICow>();
             for(int i =0; i < 24; i++)
             {
                 //var ellipse = (parent.Children[i] as Ellipse);
@@ -24,7 +24,7 @@ namespace MorabarabaNS.Helpers
         /// Returns the Initilized board to be used in the current game session
         /// </summary>
         /// <returns></returns>
-        public Board InitializeBoard()
+        public IBoard InitializeBoard()
         {
             return gameBoard;
         }

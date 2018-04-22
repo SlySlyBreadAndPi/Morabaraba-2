@@ -35,7 +35,7 @@ namespace MorabarabaNS.Helpers
         /// Creates the Player one object
         /// </summary>
         /// <returns></returns>
-        public Player GetPlayerOne()
+        public IPlayer GetPlayerOne()
         {
             return one;
         }
@@ -43,7 +43,7 @@ namespace MorabarabaNS.Helpers
         /// Creates the Player two object
         /// </summary>
         /// <returns></returns>
-        public Player GetPlayerTwo()
+        public IPlayer GetPlayerTwo()
         {
             return two;
         }

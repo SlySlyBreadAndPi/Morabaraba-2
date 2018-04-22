@@ -10,9 +10,9 @@ namespace MorabarabaNS.Helpers
     /// </summary>
     public class ValidPositionVerifier : IValidPositionVerifier
     {
-        Board board;
+        IBoard board;
 
-        public ValidPositionVerifier(Board board)
+        public ValidPositionVerifier(IBoard board)
         {
             this.board = board;
         }
@@ -31,7 +31,7 @@ namespace MorabarabaNS.Helpers
         }
 
         //Checks if a position on the board belongs to the player being passed to it
-        public bool VerifyOwnByPlayer(int cow, Player player)
+        public bool VerifyOwnByPlayer(int cow, IPlayer player)
         {
             return (board.GetNode(cow).Get() == player.GetCow().Get());
         }
@@ -43,6 +43,34 @@ namespace MorabarabaNS.Helpers
                 if (VerifyEmpty(i)) return true;
             }
             return false;
+        }
+
+        public bool VerifyMoving(int index, IPlayer player)
+        {
+            return VerifyOwnByPlayer(index, player) && VerifyAdjacent(board.GetAdjacent(index));
+        }
+        public bool VerifyMoving2(int index)
+        {
+            return VerifyEmpty(index) && board.isAdjacent(index);
+        }
+        public bool VerifyPlacing(int index)
+        {
+            return VerifyEmpty(index);
+        }
+        public bool VerifyFlying(int index, IPlayer player)
+        {
+            return VerifyOwnByPlayer(index, player);
+        }
+        public bool VerifyFlying2(int index)
+        {
+            return VerifyEmpty(index);
+        }
+        public bool VerifyCanShoot(int index, IPlayer  player)
+        {
+            bool inMill = board.CheckIndexForMill(index, player);
+            bool allInMill = !board.ContainsCowNotinMill(player);
+            bool ownedByOpponent = VerifyOwnByPlayer(index, player);
+            return ownedByOpponent && (inMill == allInMill);
         }
     }
 }

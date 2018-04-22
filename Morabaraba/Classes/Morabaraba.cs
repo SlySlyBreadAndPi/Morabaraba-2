@@ -12,9 +12,9 @@ namespace MorabarabaNS.Classes
 
     public class Morabaraba: IMorabaraba
     {
-        private Board CurrentBoard;
-        private Player p1;
-        private Player p2;
+        public IBoard CurrentBoard;
+        private IPlayer p1;
+        private IPlayer p2;
         private bool turn;
         private bool removing;
         PlayerCreator creator;
@@ -81,16 +81,12 @@ namespace MorabarabaNS.Classes
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public bool PlaceCow (int index)
-        {
-            CurrentBoard.SetNode(index, TurnCow());
-            return (CurrentBoard.CheckIndexForMill(index, Turn(turn)));
-        }
+        
         /// <summary>
         /// Move takes in a index of an ellipse and then uses the game state variables it has within it to call various methods to facilitate appropriate actions.
         /// </summary>
         /// <param name="index"></param>
-        public Board Move (int index)
+        public IBoard Move (int index)
         {
             verifier = new ValidPositionVerifier(CurrentBoard);
             if(command!=null)
@@ -99,10 +95,8 @@ namespace MorabarabaNS.Classes
             }  
             if(removing)
             {
-                bool inMill = CurrentBoard.CheckIndexForMill(index, Turn(!turn));
-                bool allInMill = !CurrentBoard.ContainsCowNotinMill(Turn(!turn));
-                bool ownedByOpponent = verifier.VerifyOwnByPlayer(index, Turn(!turn));
-                if (ownedByOpponent && (inMill == allInMill))
+               
+                if (verifier.VerifyCanShoot(index, Turn(!turn)))
                 {
                     CurrentBoard.SetEmpty(index);
                     CowKilled();
@@ -122,40 +116,39 @@ namespace MorabarabaNS.Classes
                         {
                             PlayerLost();
                         }
-                        else if(verifier.VerifyOwnByPlayer(index, Turn(turn))&& verifier.VerifyAdjacent(CurrentBoard.GetAdjacent(index)))
+                        else if(verifier.VerifyMoving(index, Turn(turn)))
                         {
-                            CurrentBoard.SetEmpty(index);
-                            CurrentBoard.setTemp(index);
+                            CurrentBoard.Moving(index);
                             SetTurnPhase(Phase.Moving2);                            
                         }
                         break;
                     case (Phase.Moving2):
-                        if (verifier.VerifyEmpty(index)&&CurrentBoard.isAdjacent(index))
+                        if (verifier.VerifyMoving2(index))
                         {
-                            removing=PlaceCow(index);
+                            removing=CurrentBoard.PlaceCow(index,Turn(turn));
                             SetTurnPhase(Phase.Moving);
                             if (!removing) NextTurn();
                         }
                         break;
                     case (Phase.Placing):
-                        if (verifier.VerifyEmpty(index))
+                        if (verifier.VerifyPlacing(index))
                         {
                             CowPlaced();
-                            removing = PlaceCow(index);
+                            removing = CurrentBoard.PlaceCow(index, Turn(turn));
                             if (!removing) NextTurn();
                         }
                         break;
                     case (Phase.Flying):
-                        if (verifier.VerifyOwnByPlayer(index, Turn(turn)))
+                        if (verifier.VerifyFlying(index, Turn(turn)))
                         {
                             CurrentBoard.SetEmpty(index);
                             SetTurnPhase(Phase.Flying2);
                         }
                         break;
                     case (Phase.Flying2):
-                        if (verifier.VerifyEmpty(index))
+                        if (verifier.VerifyFlying2(index))
                         {
-                            removing = PlaceCow(index);
+                            removing = CurrentBoard.PlaceCow(index, Turn(turn));
                             SetTurnPhase(Phase.Flying);
                             if (!removing) NextTurn();
                         }
@@ -179,7 +172,7 @@ namespace MorabarabaNS.Classes
             return true;
         }
 
-        public Player Turn(bool turn)
+        public IPlayer Turn(bool turn)
         {
             return turn? p1 : p2;
         }
@@ -213,7 +206,7 @@ namespace MorabarabaNS.Classes
             if (turn) p1.SetPhase(phase);
             else p2.SetPhase(phase);
         }
-        public Cow TurnCow()
+        public ICow TurnCow()
         {
             return turn ? p1.GetCow() : p2.GetCow();
         }
@@ -270,7 +263,7 @@ namespace MorabarabaNS.Classes
         /// returns the cow list that makes up board
         /// </summary>
         /// <returns>List<Cow></returns>
-      public List<Cow> GetBoard()
+      public List<ICow> GetBoard()
         {
             return CurrentBoard.GetNodes();
         }
@@ -279,15 +272,6 @@ namespace MorabarabaNS.Classes
             return turn;
         }
 
-        public int CowsOnBoard()
-        {
-            var cows = GetBoard();
-            int count = 0;
-            foreach (Cow x in cows)
-            {
-                if (x.Get() != MorabarabaNS.Models.ColorType.Colour.Empty) count++;
-            }
-            return count;
-        }
+        
     }
 }
