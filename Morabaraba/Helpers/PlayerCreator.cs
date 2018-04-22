@@ -13,23 +13,23 @@ namespace MorabarabaNS.Helpers
     {
         Player one;
         Player two;
-        public PlayerCreator(Colour color)
+        public PlayerCreator()
         {
-            var unusedColor = color == ColorType.Colour.Dark ? ColorType.Colour.Light : ColorType.Colour.Dark;
-            one = new Player(Phases.Phase.Placing,0,12,new Cow(color));
-            two = new Player(Phases.Phase.Placing,0,12,new Cow(unusedColor));
+            
+            one = new Player(Phases.Phase.Placing,0,12,new Cow(ColorType.Colour.Dark));
+            two = new Player(Phases.Phase.Placing,0,12,new Cow(ColorType.Colour.Light));
         }
-        public PlayerCreator(Colour color, int count)
+        public PlayerCreator(int count)
         {
-            var unusedColor = color == ColorType.Colour.Dark ? ColorType.Colour.Light : ColorType.Colour.Dark;
-            one = new Player(Phases.Phase.Placing, count, new Cow(color));
-            two = new Player(Phases.Phase.Placing, count, new Cow(unusedColor));
+            
+            one = new Player(Phases.Phase.Placing, count, new Cow(ColorType.Colour.Dark));
+            two = new Player(Phases.Phase.Placing, count, new Cow(ColorType.Colour.Light));
         }
-        public PlayerCreator(Colour color, int count,int count2)
+        public PlayerCreator(int count,int count2)
         {
-            var unusedColor = color == ColorType.Colour.Dark ? ColorType.Colour.Light : ColorType.Colour.Dark;
-            one = new Player(Phases.Phase.Placing, count, new Cow(color));
-            two = new Player(Phases.Phase.Placing, count2, new Cow(unusedColor));
+            
+            one = new Player(Phases.Phase.Placing, count, new Cow(ColorType.Colour.Dark));
+            two = new Player(Phases.Phase.Placing, count2, new Cow(ColorType.Colour.Light));
         }
         /// <summary>
         /// Creates the Player one object

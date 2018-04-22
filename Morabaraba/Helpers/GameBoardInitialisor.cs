@@ -9,24 +9,47 @@ namespace MorabarabaNS.Helpers
     /// </summary>
     public class GameBoardInitialisor : IGameBoardInitialisor
     {
-        IBoard gameBoard;
         public GameBoardInitialisor()//Grid parent)
         {
-            var Nodes = new List<ICow>();
-            for(int i =0; i < 24; i++)
-            {
-                //var ellipse = (parent.Children[i] as Ellipse);
-                Nodes.Add(new Cow(ColorType.Colour.Empty));
-            }
-            gameBoard = new Board(Nodes,GameStates.GameState.Playing);
+            
         }
+
         /// <summary>
         /// Returns the Initilized board to be used in the current game session
         /// </summary>
         /// <returns></returns>
         public IBoard InitializeBoard()
         {
-            return gameBoard;
+            var Nodes = new List<ICow>();
+            for (int i = 0; i < 24; i++)
+            {
+                //var ellipse = (parent.Children[i] as Ellipse);
+                Nodes.Add(new Cow(ColorType.Colour.Empty));
+            }
+            return new Board(Nodes, GameStates.GameState.Playing);
+
+        }
+        public IBoard InitializeBoard(List<int> p1, List<int> p2)
+        {
+            var Nodes = new List<ICow>();
+            for (int i = 0; i < 24; i++)
+            {
+                if (p1.Contains(i))
+                {
+                    Nodes.Add(new Cow(ColorType.Colour.Dark));
+                }
+                else if (p2.Contains(i))
+                {
+                    Nodes.Add(new Cow(ColorType.Colour.Light));
+                }
+                else
+                {
+                    //var ellipse = (parent.Children[i] as Ellipse);
+                    Nodes.Add(new Cow(ColorType.Colour.Empty));
+                }
+            }
+            return new Board(Nodes, GameStates.GameState.Playing);
+
         }
     }
 }

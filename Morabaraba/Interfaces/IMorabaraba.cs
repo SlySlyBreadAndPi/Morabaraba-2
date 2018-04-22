@@ -22,5 +22,7 @@ namespace MorabarabaNS.Interfaces
         bool GetPlayerLostOrNot();
         List<ICow> GetBoard();
         bool getTurn();
+
+        void Changeremoving();
     }
 }

@@ -17,9 +17,9 @@ namespace MorabarabaNS.Classes
         private IPlayer p2;
         private bool turn;
         private bool removing;
-        PlayerCreator creator;
-        GameBoardInitialisor init;
-        ValidPositionVerifier verifier;
+        IPlayerCreator creator;
+        IGameBoardInitialisor init;
+        IValidPositionVerifier verifier;
         private ICommand command;
 
         /// <summary>
@@ -30,18 +30,31 @@ namespace MorabarabaNS.Classes
         {
             init = new GameBoardInitialisor();
             CurrentBoard = init.InitializeBoard();
-            creator = new PlayerCreator(ColorType.Colour.Dark);
+            creator = new PlayerCreator();
             p1 = creator.GetPlayerOne();
             p2 = creator.GetPlayerTwo();
             turn = true;
             removing = false;
-            
+
         }
+        public Morabaraba(IBoard board, IPlayerCreator creator)
+        {
+
+            CurrentBoard = board; //init.InitializeBoard(p1Pos,p2Pos);
+            this.creator = creator; //new PlayerCreator(ColorType.Colour.Dark,12-p1Pos.Count,12-p2Pos.Count);
+            p1 = creator.GetPlayerOne();
+            p2 = creator.GetPlayerTwo();
+            turn = true;
+            removing = false;
+
+        }
+
+
         public Morabaraba(int unplaced)
         {
             init = new GameBoardInitialisor();
             CurrentBoard = init.InitializeBoard();
-            creator = new PlayerCreator(ColorType.Colour.Dark, unplaced);
+            creator = new PlayerCreator( unplaced);
             p1 = creator.GetPlayerOne();
             p2 = creator.GetPlayerTwo();
             turn = true;
@@ -51,7 +64,7 @@ namespace MorabarabaNS.Classes
         {
             init = new GameBoardInitialisor();
             CurrentBoard = init.InitializeBoard();
-            creator = new PlayerCreator(ColorType.Colour.Dark, unplaced,unplaced2);
+            creator = new PlayerCreator(unplaced,unplaced2);
             p1 = creator.GetPlayerOne();
             p2 = creator.GetPlayerTwo();
             turn = true;
@@ -68,7 +81,7 @@ namespace MorabarabaNS.Classes
             this.command = command;
             init = new GameBoardInitialisor();
             CurrentBoard = init.InitializeBoard();
-            creator = new PlayerCreator(ColorType.Colour.Dark);
+            creator = new PlayerCreator();
             p1 = creator.GetPlayerOne();
             p2 = creator.GetPlayerTwo();
             turn = true;
@@ -159,7 +172,7 @@ namespace MorabarabaNS.Classes
             return CurrentBoard;
 
         }
-        public bool CheckIfNoAvaliableMoves(ValidPositionVerifier ver)
+        public bool CheckIfNoAvaliableMoves(IValidPositionVerifier ver)
         {
             var cows = GetBoard();
             var cw = Turn(turn).GetCow().Get();
@@ -175,6 +188,10 @@ namespace MorabarabaNS.Classes
         public IPlayer Turn(bool turn)
         {
             return turn? p1 : p2;
+        }
+        public IPlayer Turn()
+        {
+            return this.turn ? p1 : p2;
         }
         public void PlayerLost()
         {
@@ -271,7 +288,10 @@ namespace MorabarabaNS.Classes
         {
             return turn;
         }
-
+        public void Changeremoving()
+        {
+            removing = !removing;
+        }
         
     }
 }
